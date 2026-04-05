@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Do You Need a Car in Sicily? The Honest Answer by Trip Type</title>
+<meta name="description" content="Skip the vague forum advice. Here is a straight answer on whether you need a car in Sicily based on your actual itinerary -- with decision tables and car rental tips.">
+<meta property="og:title" content="Do You Need a Car in Sicily? The Honest Answer by Trip Type">
+<meta property="og:description" content="Skip the vague forum advice. Here is a straight answer on whether you need a car in Sicily based on your actual itinerary.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://sicily.ltd/do-you-need-a-car-in-sicily/">
+<meta property="og:site_name" content="Sicily Trip Planner">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Do You Need a Car in Sicily? The Honest Answer by Trip Type">
+<meta name="twitter:description" content="Skip the vague forum advice. Here is a straight answer on whether you need a car in Sicily based on your actual itinerary.">
+<link rel="canonical" href="https://sicily.ltd/do-you-need-a-car-in-sicily/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a18;
+  --ink-muted: #5a5a52;
+  --ink-faint: #8a8a80;
+  --bg: #faf9f6;
+  --bg-warm: #f4f1eb;
+  --bg-card: #ffffff;
+  --accent: #c0392b;
+  --accent-light: #f9eceb;
+  --green: #27642a;
+  --green-light: #edf4ee;
+  --amber: #8a5a00;
+  --amber-light: #fef6e4;
+  --border: #e2ddd5;
+  --max: 740px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+/* NAV */
+nav {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow-x: auto;
+}
+
+.logo {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.nav-pill {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.nav-pill:hover {
+  background: var(--bg-warm);
+  color: var(--ink);
+}
+
+.nav-pill.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+/* HERO */
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+}
+
+/* QUICK ANSWER BOX */
+.quick-answer {
+  background: var(--ink);
+  color: #f5f3ef;
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin: 32px 0 0;
+}
+
+.quick-answer h2 {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #fff;
+  margin-top: 0;
+}
+
+.qa-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.qa-row:last-child {
+  margin-bottom: 0;
+}
+
+.qa-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.qa-dot.no  { background: #5dade2; }
+.qa-dot.yes { background: #f39c12; }
+.qa-dot.abs { background: #e74c3c; }
+
+/* BODY */
+.body-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 52px;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+
+/* PLAN MODULE */
+.plan-module {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 40px 0 0;
+  font-size: 14px;
+}
+
+.plan-module-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+
+.plan-steps {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.plan-step {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.plan-step.current {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.plan-step:hover:not(.current) {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* BOTTOM LINE CALLOUT */
+.callout {
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout.warn {
+  background: var(--amber-light);
+  border-left: 4px solid #d4900a;
+}
+
+.callout.good {
+  background: var(--green-light);
+  border-left: 4px solid var(--green);
+}
+
+.callout.neutral {
+  background: var(--bg-warm);
+  border-left: 4px solid var(--ink-faint);
+}
+
+.callout-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.callout.warn .callout-title   { color: var(--amber); }
+.callout.good .callout-title   { color: var(--green); }
+.callout.neutral .callout-title { color: var(--ink-muted); }
+
+.callout p {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+/* DECISION TABLE */
+.decision-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0 32px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+thead th {
+  background: var(--ink);
+  color: #fff;
+  padding: 13px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover td {
+  background: var(--bg-warm);
+}
+
+.verdict-no  { font-weight: 600; color: var(--green); }
+.verdict-yes { font-weight: 600; color: var(--amber); }
+.verdict-abs { font-weight: 600; color: var(--accent); }
+
+/* SETUP CARDS */
+.setup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+@media (max-width: 600px) {
+  .setup-grid { grid-template-columns: 1fr; }
+}
+
+.setup-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  background: var(--bg-card);
+}
+
+.setup-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+
+.setup-card h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.setup-card ul {
+  padding-left: 18px;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.setup-card li {
+  margin-bottom: 4px;
+}
+
+/* AFFILIATE CTA */
+.affiliate-cta {
+  background: var(--bg-card);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 32px;
+  margin: 48px 0;
+  text-align: center;
+}
+
+.affiliate-cta h3 {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.affiliate-cta p {
+  font-size: 15px;
+  color: var(--ink-muted);
+  margin-bottom: 20px;
+}
+
+.affiliate-disclosure {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: background 0.15s;
+}
+
+.cta-btn:hover {
+  background: #a93226;
+}
+
+.cta-subtext {
+  font-size: 12px;
+  color: var(--ink-faint);
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+
+/* NEXT DECISION */
+.next-decision {
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
+  margin-top: 56px;
+  margin-bottom: 64px;
+}
+
+.next-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+
+.next-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .next-grid { grid-template-columns: 1fr; }
+}
+
+.next-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  text-decoration: none;
+  background: var(--bg-card);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  display: block;
+}
+
+.next-card:hover {
+  border-color: var(--ink);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.next-card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+
+.next-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.next-card-desc {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+/* DECIDES BLOCK */
+.decides-block {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 22px;
+  margin: 40px 0 0;
+  background: var(--bg-card);
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.decides-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.decides-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 5px;
+}
+
+.decides-text {
+  font-size: 14px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+footer a {
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--ink);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Sicily Trip Planner</a>
+  <div class="nav-pills">
+    <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+    <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+    <a href="/do-you-need-a-car-in-sicily/" class="nav-pill active">Transport</a>
+  </div>
+</nav>
+
+<article>
+  <div class="hero">
+    <div class="breadcrumb"><a href="/">Sicily Trip Planner</a> &rsaquo; Transport</div>
+    <div class="section-tag">Transport</div>
+    <h1>Do You Need a Car in Sicily?<br>The Honest Answer by Trip Type</h1>
+
+    <p>A lot of Sicily travel advice gives the same useless answer: <em>it depends.</em></p>
+    <p>True, but not helpful.</p>
+    <p>Here is the simple version: if you are doing a short trip, staying in one main base, and focusing on places like Taormina, Ortigia, or Catania, you can absolutely do Sicily without a car. If you want flexibility, smaller towns, beach hopping, countryside stops, or a multi-base itinerary, rent the car and save yourself the friction.</p>
+    <p>The mistake people make is treating Sicily like a city break. It is not. Distances are manageable, but the friction adds up fast if your plan depends on perfect train timing, airport transfers, and buses that do not quite line up with how you actually want to travel. Before you decide, it helps to know <a href="/where-to-base-in-sicily/">where you are basing yourself</a> and how you are <a href="/getting-from-the-airport-to-your-hotel/">getting from the airport to your hotel</a> &mdash; both affect the car calculation significantly.</p>
+    <p>This page gives you a straight answer based on your trip type &mdash; not vague forum nonsense.</p>
+
+    <div class="quick-answer">
+      <h2>Quick answer</h2>
+      <div class="qa-row">
+        <div class="qa-dot no"></div>
+        <div><strong>No car needed:</strong> 4&ndash;5 days, one base, east coast, urban or semi-urban trip</div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-dot yes"></div>
+        <div><strong>Car recommended:</strong> 7+ days, two or more bases, beaches, rural stops, west coast flexibility</div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-dot abs"></div>
+        <div><strong>Car absolutely worth it:</strong> road trip, family travel, off-the-beaten-path plans, countryside stays</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-content">
+
+    <div class="plan-module">
+      <div class="plan-module-label">Planning your Sicily trip</div>
+      <div class="plan-steps">
+        <a href="/how-long-should-i-spend-in-sicily/" class="plan-step">&#9312; Route</a>
+        <a href="/east-vs-west-sicily/" class="plan-step">&#9313; East vs West</a>
+        <a href="/where-to-base-in-sicily/" class="plan-step">&#9314; Base</a>
+        <a href="/do-you-need-a-car-in-sicily/" class="plan-step current">&#9315; Transport</a>
+        <a href="/getting-from-the-airport-to-your-hotel/" class="plan-step">&#9316; Airport</a>
+      </div>
+    </div>
+
+    <div class="decides-block">
+      <div class="decides-icon">&#9654;</div>
+      <div>
+        <div class="decides-label">What this page helps you decide</div>
+        <p class="decides-text">Whether your specific itinerary needs a rental car &mdash; with a verdict by trip length, trip type, and base location, so you can stop second-guessing and book with confidence.</p>
+      </div>
+    </div>
+
+    <div class="callout neutral" style="margin-top: 40px;">
+      <div class="callout-title">Bottom line</div>
+      <p>If you are staying in one well-connected base on the east coast, skip the car. If you are changing bases, heading west, or visiting smaller towns and beaches, rent one.</p>
+    </div>
+
+    <h2>The short answer by trip length</h2>
+
+    <p>Trip length is the biggest single factor. Here is how it breaks down in practice.</p>
+
+    <p><strong>4&ndash;5 days:</strong> Skip the car. At this length you are realistically staying in one base &mdash; Taormina, Ortigia, or Catania are all well connected by train or private transfer. Add day tours for Etna or coastal spots. You will not feel constrained.</p>
+
+    <p><strong>7 days:</strong> This is the grey zone. If you are doing east Sicily only and staying in one or two connected spots, you can manage car-free with some planning. But if your 7-day plan involves Palermo, Cefalu, Agrigento, or any rural stops, rent the car. The time you will waste on buses and indirect rail routes will eat your trip.</p>
+
+    <p><strong>10&ndash;14 days:</strong> Get the car. Full stop. At this length you are almost certainly moving between east and west, visiting smaller towns, and spending nights in places where trains do not go. The car pays for itself in flexibility.</p>
+
+    <h2>Decision table by itinerary type</h2>
+
+    <div class="decision-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Your trip type</th>
+            <th>Verdict</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Short trip, one base (Taormina / Ortigia / Catania), 4&ndash;5 days</td>
+            <td class="verdict-no">No car</td>
+            <td>Trains cover Catania&ndash;Taormina&ndash;Messina. Transfers are cheap. Day tours handle Etna.</td>
+          </tr>
+          <tr>
+            <td>East Sicily, 7 days, two bases (e.g. Catania + Ortigia)</td>
+            <td class="verdict-no">Probably not</td>
+            <td>Direct trains connect these. One transfer on arrival. Manageable without a car.</td>
+          </tr>
+          <tr>
+            <td>East + West, 7&ndash;10 days, multi-base</td>
+            <td class="verdict-yes">Yes</td>
+            <td>The Palermo&ndash;Catania train can easily take 3 hours or more. Buses are unreliable for flexible itineraries. A car saves hours of dead time.</td>
+          </tr>
+          <tr>
+            <td>Any west Sicily itinerary (Palermo, Trapani, San Vito Lo Capo)</td>
+            <td class="verdict-yes">Yes</td>
+            <td>West Sicily's beaches and towns are mostly inaccessible by public transit without long waits and backtracking.</td>
+          </tr>
+          <tr>
+            <td>Countryside, agriturismi, small hill towns (Ragusa, Noto, Modica)</td>
+            <td class="verdict-abs">Absolutely yes</td>
+            <td>These towns have minimal public transport. Without a car you will be stuck or paying for expensive private transfers repeatedly.</td>
+          </tr>
+          <tr>
+            <td>Family travel with kids</td>
+            <td class="verdict-abs">Absolutely yes</td>
+            <td>Logistics with kids on buses is genuinely unpleasant. A car gives you schedule control, luggage ease, and flexibility when plans change.</td>
+          </tr>
+          <tr>
+            <td>Full island road trip, 10&ndash;14 days</td>
+            <td class="verdict-abs">Absolutely yes</td>
+            <td>This is what a car is made for. The coastal and inland routes are excellent. You will use it every single day.</td>
+          </tr>
+          <tr>
+            <td>Pure city-base trip (Palermo only, or Catania only)</td>
+            <td class="verdict-no">No car</td>
+            <td>Cities have taxis and buses. Parking in Palermo's historic centre is a genuine headache. Skip the car and skip the frustration.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>When not having a car will cost you</h2>
+
+    <p>The friction points that will matter if you go car-free on the wrong itinerary:</p>
+
+    <div class="callout warn">
+      <div class="callout-title">The bus scheduling trap</div>
+      <p>Sicilian intercity buses run on their schedule, not yours. If you miss the 14:30 to Agrigento, the next one might be 17:45. In summer heat with luggage, this is a bad afternoon. Trains are more reliable but do not go everywhere.</p>
+    </div>
+
+    <p><strong>Agrigento's Valley of the Temples</strong> &mdash; technically reachable by train from Palermo or Catania, but the journey is slow and transfers are awkward. With a car it is a clean half-day excursion.</p>
+
+    <p><strong>Noto, Modica, Ragusa</strong> &mdash; this baroque triangle is genuinely difficult without a car. Buses exist but frequency and routing make multi-stop days near-impossible on public transit.</p>
+
+    <p><strong>Any beach not attached to a major town</strong> &mdash; Sicily's best beaches (San Vito Lo Capo, Scala dei Turchi, beaches near Scopello) are not served by regular public transit. Car or organised tour, those are your options.</p>
+
+    <div class="callout warn">
+      <div class="callout-title">The transfer cost trap</div>
+      <p>Private airport transfers to remote bases &mdash; say, Catania airport to an agriturismo near Ragusa &mdash; can run 80&ndash;120 euros each way. If you are doing that twice, you have already paid for a 3-day car rental. Do the maths before assuming no-car is the budget option.</p>
+    </div>
+
+    <h2>When renting a car is overkill</h2>
+
+    <p>A car is not always the answer. These are the scenarios where you genuinely do not need one.</p>
+
+    <p><strong>Taormina as your only base:</strong> Taormina is small, walkable, and has a cable car down to the beach. Day trips to Etna go by organised tour. Catania is 45 minutes by train. Parking near Taormina's old town is a pain &mdash; skip the car.</p>
+
+    <p><strong>Palermo city only:</strong> Parking in Palermo's historic centre is stressful. The city has taxis and enough local transport. Day trips to Monreale and Cefalu work by bus or train. Skip the car and skip the headache.</p>
+
+    <p><strong>Catania as an airport base with day tours:</strong> Flying in and out of Catania with a few days in the city plus an Etna day tour? Car-free is the right call. The tour handles the logistics.</p>
+
+    <div class="callout neutral">
+      <div class="callout-title">A note on ZTL zones</div>
+      <p>Most of Sicily's beautiful old towns have limited traffic zones (ZTL) that restrict driving in the centre. Renting a car and then parking outside to walk in is sometimes fine &mdash; but in tight towns like Taormina or Ortigia, the car can add friction rather than remove it.</p>
+    </div>
+
+    <h2>Best car-free Sicily setups</h2>
+
+    <div class="setup-grid">
+      <div class="setup-card">
+        <div class="setup-card-label">Car-free setup A</div>
+        <h3>The East Coast Urban</h3>
+        <ul>
+          <li>Fly into Catania</li>
+          <li>2 nights Catania</li>
+          <li>3 nights Taormina (train)</li>
+          <li>1 night Ortigia (train)</li>
+          <li>Day tour to Etna from Taormina</li>
+        </ul>
+      </div>
+      <div class="setup-card">
+        <div class="setup-card-label">Car-free setup B</div>
+        <h3>The Palermo Focus</h3>
+        <ul>
+          <li>Fly into Palermo</li>
+          <li>4 nights Palermo</li>
+          <li>2 nights Cefalu (train: 45 min)</li>
+          <li>Day trip to Monreale (bus)</li>
+          <li>Walk, taxi, and local buses throughout</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2>Best road-trip Sicily setups</h2>
+
+    <div class="setup-grid">
+      <div class="setup-card">
+        <div class="setup-card-label">Road-trip setup A</div>
+        <h3>The East Loop &mdash; 7 days</h3>
+        <ul>
+          <li>Pick up at Catania airport</li>
+          <li>Etna area + wineries (1 night)</li>
+          <li>Taormina (2 nights)</li>
+          <li>Ortigia / Syracuse (2 nights)</li>
+          <li>Noto + Modica day trip</li>
+          <li>Drop off Catania</li>
+        </ul>
+      </div>
+      <div class="setup-card">
+        <div class="setup-card-label">Road-trip setup B</div>
+        <h3>The Full Island &mdash; 10&ndash;14 days</h3>
+        <ul>
+          <li>Fly in Catania, out Palermo (one-way rental)</li>
+          <li>East loop: Etna, Taormina, Ortigia</li>
+          <li>Agrigento mid-point</li>
+          <li>West coast: Trapani, San Vito Lo Capo</li>
+          <li>Cefalu then Palermo to close</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout good">
+      <div class="callout-title">One-way rental tip</div>
+      <p>If you are doing the full island, book a one-way rental &mdash; pick up in Catania, drop off in Palermo, or vice versa. Most major rental companies allow this. The one-way fee is usually 30&ndash;60 euros and worth every cent compared to doubling back.</p>
+    </div>
+
+    <h2>Verdict</h2>
+
+    <p>The real question is not "do I need a car" &mdash; it is "what is my itinerary?" Once you know your route and bases, the car decision is usually obvious.</p>
+
+    <p>If your trip includes multiple bases, beaches, or smaller towns: rent the car and remove the mental overhead. You will spend two days second-guessing yourself and then wish you had just booked it.</p>
+
+    <p>If you are doing a short, city-anchored trip on the east coast: skip the car and book a solid airport transfer instead.</p>
+
+    <p class="affiliate-disclosure">We may earn a commission if you book, at no extra cost to you.</p>
+
+    <div class="affiliate-cta">
+      <h3>Ready to compare car rental prices?</h3>
+      <p>Compare major rental providers in one place before you book.</p>
+      <a href="https://www.discovercars.com/?a_aid=sicily" class="cta-btn" rel="sponsored noopener" target="_blank">Compare Sicily car rental prices &rarr;</a>
+      <p class="cta-subtext">Prices vary by pickup location, dates, and season. Always check the full rental terms before booking.</p>
+    </div>
+
+    <div class="next-decision">
+      <div class="next-label">Next decision to make</div>
+      <div class="next-grid">
+        <a href="/getting-from-the-airport-to-your-hotel/" class="next-card">
+          <div class="next-card-tag">Transport &rarr; Next</div>
+          <div class="next-card-title">Getting from the airport to your hotel</div>
+          <div class="next-card-desc">Transfer options for every base, with time and cost comparisons.</div>
+        </a>
+        <a href="/where-to-base-in-sicily/" class="next-card">
+          <div class="next-card-tag">Base</div>
+          <div class="next-card-title">Where to base in Sicily</div>
+          <div class="next-card-desc">Choose the right base for your trip type &mdash; beach, culture, luxury, or access.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <p>
+    <a href="/">Sicily Trip Planner</a> &nbsp;&middot;&nbsp;
+    <a href="/do-you-need-a-car-in-sicily/">Transport</a> &nbsp;&middot;&nbsp;
+    Affiliate disclosure: some links on this site earn us a commission at no cost to you.
+  </p>
+</footer>
+
+</body>
+</html>
