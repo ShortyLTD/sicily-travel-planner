@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>East vs West Sicily: Which Coast Fits Your Trip?</title>
+<meta name="description" content="East or west Sicily? The answer depends on your trip length, travel style, and tolerance for logistics. Here is how to pick the right coast.">
+<meta property="og:title" content="East vs West Sicily: Which Coast Fits Your Trip?">
+<meta property="og:description" content="East or west Sicily? The answer depends on your trip length, travel style, and tolerance for logistics.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Sicily Trip Planner">
+<meta property="og:url" content="https://sicily.ltd/east-vs-west-sicily/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="East vs West Sicily: Which Coast Fits Your Trip?">
+<meta name="twitter:description" content="East or west Sicily? The answer depends on your trip length, travel style, and tolerance for logistics.">
+<link rel="canonical" href="https://sicily.ltd/east-vs-west-sicily/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1a18;
+  --ink-muted: #5a5a52;
+  --ink-faint: #8a8a80;
+  --bg: #faf9f6;
+  --bg-warm: #f4f1eb;
+  --bg-card: #ffffff;
+  --accent: #c0392b;
+  --accent-light: #f9eceb;
+  --green: #27642a;
+  --green-light: #edf4ee;
+  --amber: #8a5a00;
+  --amber-light: #fef6e4;
+  --border: #e2ddd5;
+  --max: 740px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+nav {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow-x: auto;
+}
+
+.logo {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.nav-pill {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.nav-pill:hover {
+  background: var(--bg-warm);
+  color: var(--ink);
+}
+
+.nav-pill.active {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 56px 24px 40px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 16px;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(26px, 4vw, 38px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+}
+
+.quick-answer {
+  background: var(--ink);
+  color: #f5f3ef;
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin: 32px 0 0;
+}
+
+.quick-answer h2 {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #fff;
+  margin-top: 0;
+}
+
+.qa-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.qa-row:last-child {
+  margin-bottom: 0;
+}
+
+.qa-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.qa-dot.east { background: #5dade2; }
+.qa-dot.west { background: #f39c12; }
+.qa-dot.both { background: #2ecc71; }
+
+.body-content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 52px;
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-top: 28px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin-bottom: 18px;
+  color: var(--ink);
+}
+
+a.body-link {
+  color: var(--accent);
+}
+
+.plan-module {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 40px 0 0;
+  font-size: 14px;
+}
+
+.plan-module-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+
+.plan-steps {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.plan-step {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+
+.plan-step.current {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
+
+.plan-step:hover:not(.current) {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.callout {
+  border-radius: 8px;
+  padding: 20px 24px;
+  margin: 28px 0;
+}
+
+.callout.warn {
+  background: var(--amber-light);
+  border-left: 4px solid #d4900a;
+}
+
+.callout.good {
+  background: var(--green-light);
+  border-left: 4px solid var(--green);
+}
+
+.callout.neutral {
+  background: var(--bg-warm);
+  border-left: 4px solid var(--ink-faint);
+}
+
+.callout-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.callout.warn .callout-title   { color: var(--amber); }
+.callout.good .callout-title   { color: var(--green); }
+.callout.neutral .callout-title { color: var(--ink-muted); }
+
+.callout p {
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.decision-table-wrap {
+  overflow-x: auto;
+  margin: 24px 0 32px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+thead th {
+  background: var(--ink);
+  color: #fff;
+  padding: 13px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+
+tbody td {
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  line-height: 1.5;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover td {
+  background: var(--bg-warm);
+}
+
+.v-east { font-weight: 600; color: #2471a3; }
+.v-west { font-weight: 600; color: var(--amber); }
+.v-both { font-weight: 600; color: var(--green); }
+
+.coast-section {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 24px;
+  margin: 32px 0;
+  background: var(--bg-card);
+}
+
+.coast-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.coast-badge {
+  font-family: 'Lora', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.3px;
+  line-height: 1;
+}
+
+.coast-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+
+.coast-section p {
+  margin-top: 12px;
+  margin-bottom: 14px;
+  font-size: 15.5px;
+}
+
+.coast-section h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+.coast-section ul {
+  padding-left: 18px;
+  font-size: 15px;
+  color: var(--ink-muted);
+}
+
+.coast-section li {
+  margin-bottom: 6px;
+}
+
+.setup-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+@media (max-width: 600px) {
+  .setup-grid { grid-template-columns: 1fr; }
+}
+
+.setup-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  background: var(--bg-card);
+}
+
+.setup-card-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 8px;
+}
+
+.setup-card h3 {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.setup-card ul {
+  padding-left: 18px;
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+
+.setup-card li {
+  margin-bottom: 4px;
+}
+
+.next-decision {
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
+  margin-top: 56px;
+  margin-bottom: 64px;
+}
+
+.next-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 16px;
+}
+
+.next-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+@media (max-width: 500px) {
+  .next-grid { grid-template-columns: 1fr; }
+}
+
+.next-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+  text-decoration: none;
+  background: var(--bg-card);
+  transition: border-color 0.15s, box-shadow 0.15s;
+  display: block;
+}
+
+.next-card:hover {
+  border-color: var(--ink);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.next-card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+
+.next-card-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.next-card-desc {
+  font-size: 13px;
+  color: var(--ink-muted);
+}
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+footer a {
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--ink);
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="logo">Sicily Trip Planner</a>
+  <div class="nav-pills">
+    <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+    <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+    <a href="/do-you-need-a-car-in-sicily/" class="nav-pill">Transport</a>
+  </div>
+</nav>
+
+<article>
+  <div class="hero">
+    <div class="breadcrumb"><a href="/">Sicily Trip Planner</a> &rsaquo; Route</div>
+    <div class="section-tag">Route</div>
+    <h1>East vs West Sicily:<br>Which Coast Fits Your Trip?</h1>
+
+    <p>Most people planning Sicily ask the wrong question: east or west?</p>
+    <p>Not because the question is bad, but because it sounds like a beauty contest. It is not. This is a logistics decision first, and a style decision second.</p>
+    <p>If you have a week or less, this may be the single most important choice you make. Pick the right coast and Sicily feels easy. Pick the wrong one for your trip style, and you will spend half your holiday in transit.</p>
+
+    <div class="quick-answer">
+      <h2>Quick answer</h2>
+      <div class="qa-row">
+        <div class="qa-dot east"></div>
+        <div><strong>Choose East</strong> if it is your first trip, you have under a week, or you want easier planning. Better train connections, smoother logistics, strong no-car options.</div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-dot west"></div>
+        <div><strong>Choose West</strong> if you want a more local, less polished feel and you do not mind more driving. Better beaches, rougher texture, more rewarding with a car.</div>
+      </div>
+      <div class="qa-row">
+        <div class="qa-dot both"></div>
+        <div><strong>Do both</strong> only if you have 10+ days and a car. Anything less and you will lose too much time crossing the island.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body-content">
+
+    <div class="plan-module">
+      <div class="plan-module-label">Planning your Sicily trip</div>
+      <div class="plan-steps">
+        <a href="/how-long-should-i-spend-in-sicily/" class="plan-step">&#9312; Route</a>
+        <a href="/east-vs-west-sicily/" class="plan-step current">&#9313; East vs West</a>
+        <a href="/where-to-base-in-sicily/" class="plan-step">&#9314; Base</a>
+        <a href="/do-you-need-a-car-in-sicily/" class="plan-step">&#9315; Transport</a>
+        <a href="/getting-from-the-airport-to-your-hotel/" class="plan-step">&#9316; Airport</a>
+      </div>
+    </div>
+
+    <div class="callout neutral" style="margin-top: 40px;">
+      <div class="callout-title">Bottom line</div>
+      <p>Under 7 days: pick one coast and go deep. East is the safer, easier choice. West rewards adventurous travellers with a car. Do not try to combine both in under 10 days.</p>
+    </div>
+
+    <h2>Which coast by trip type</h2>
+
+    <p>This is the decision that shapes everything else &mdash; your base, your transport, your daily rhythm. Here is how it breaks down by what you actually want from the trip.</p>
+
+    <div class="decision-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Your trip type</th>
+            <th>Best coast</th>
+            <th>Why</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>First time in Sicily</td>
+            <td class="v-east">East</td>
+            <td>Easier logistics, iconic sights (Etna, Taormina, Ortigia), better rail connections. Lower friction for a first visit.</td>
+          </tr>
+          <tr>
+            <td>No-car trip</td>
+            <td class="v-east">East</td>
+            <td>Catania&ndash;Taormina&ndash;Syracuse are connected by frequent trains. The west is doable car-free but much more limiting.</td>
+          </tr>
+          <tr>
+            <td>Short trip (under 5 days)</td>
+            <td class="v-east">East</td>
+            <td>Catania airport is better positioned for east coast bases. Less time wasted on arrival logistics.</td>
+          </tr>
+          <tr>
+            <td>Food-focused trip</td>
+            <td class="v-both">Either / both</td>
+            <td>East has Etna wines and Catania street food. West has Palermo markets and Trapani couscous. Both are exceptional. Pick based on your other priorities.</td>
+          </tr>
+          <tr>
+            <td>Best beaches</td>
+            <td class="v-west">West</td>
+            <td>San Vito Lo Capo, Scopello, Riserva dello Zingaro. The west coast has Sicily's most striking beaches, though most require a car to reach.</td>
+          </tr>
+          <tr>
+            <td>Luxury / romance</td>
+            <td class="v-east">East</td>
+            <td>Taormina is the luxury hub. High-end hotels, dramatic cliff views, Michelin restaurants. Ortigia adds romance.</td>
+          </tr>
+          <tr>
+            <td>History and archaeology</td>
+            <td class="v-both">Either / both</td>
+            <td>East has Syracuse (Greek theatre, Ortigia). West has Agrigento (Valley of the Temples), Segesta, Selinunte. Hard to choose.</td>
+          </tr>
+          <tr>
+            <td>Family with kids</td>
+            <td class="v-east">East</td>
+            <td>Easier logistics with kids. Shorter transfers, more predictable transport, Etna as a family-friendly day trip.</td>
+          </tr>
+          <tr>
+            <td>Road trip with a car</td>
+            <td class="v-west">West</td>
+            <td>The west is where a car makes the biggest difference. Coastal drives, hilltop towns, beaches you cannot reach any other way.</td>
+          </tr>
+          <tr>
+            <td>Local, off-the-beaten-path feel</td>
+            <td class="v-west">West</td>
+            <td>Palermo is grittier and more chaotic than Catania. Towns like Erice, Marsala, and the Trapani coast feel less tourist-managed.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>East Sicily</h2>
+
+    <div class="coast-section">
+      <div class="coast-section-header">
+        <span class="coast-badge">East Coast</span>
+        <span class="coast-label">Catania &middot; Taormina &middot; Syracuse &middot; Etna</span>
+      </div>
+
+      <p>The east coast is the default for first-time visitors, and for good reason. The main sights are closer together, the train connections actually work, and you can build a strong trip without a car. Catania airport sits right in the middle of the action.</p>
+
+      <p>Taormina is the jewel: a hilltop town with dramatic views, a Greek theatre, and easy access to beaches below. Ortigia (the old island centre of Syracuse) is one of the most beautiful small towns in Italy. And Etna &mdash; Europe's tallest active volcano &mdash; is a half-day trip from almost anywhere on the east coast.</p>
+
+      <h3>Best for</h3>
+      <ul>
+        <li>First-time visitors who want the classic Sicily experience</li>
+        <li>Travellers without a car &mdash; trains connect the key towns</li>
+        <li>Short trips (5&ndash;7 days) where you want to minimise logistics</li>
+        <li>Couples and luxury travellers &mdash; Taormina is the high-end base</li>
+      </ul>
+
+      <h3>Key distances</h3>
+      <ul>
+        <li>Catania to Taormina: 40 min by train, 50 min by car</li>
+        <li>Catania to Syracuse: 1h 10 min by train, 1h by car</li>
+        <li>Taormina to Syracuse: 1h 40 min by train (via Catania), 1h 15 min by car</li>
+        <li>Catania to Etna summit area: 1h 30 min by car or guided tour</li>
+      </ul>
+
+      <h3>The trade-off</h3>
+      <p>The east coast is more polished, more tourist-ready, and in high season, more crowded. Taormina in August can feel like a theme park. If you want raw, unfiltered Sicily, the east delivers less of that. And if beaches are a top priority, the east coast is weaker &mdash; the best beach scenery is on the west.</p>
+    </div>
+
+    <h2>West Sicily</h2>
+
+    <div class="coast-section">
+      <div class="coast-section-header">
+        <span class="coast-badge">West Coast</span>
+        <span class="coast-label">Palermo &middot; Cefal&ugrave; &middot; Trapani &middot; San Vito Lo Capo &middot; Erice</span>
+      </div>
+
+      <p>The west is where Sicily stops feeling like a tourist destination and starts feeling like a place where people live. Palermo is chaotic, loud, and extraordinary &mdash; the street food alone is worth the trip. The coastline from Trapani to San Vito Lo Capo has some of the best beaches in the Mediterranean.</p>
+
+      <p>But the west requires more planning, more driving, and more tolerance for things not running on schedule. Buses between smaller towns are infrequent. Trains cover the Palermo&ndash;Cefal&ugrave; corridor well, but beyond that you are on your own.</p>
+
+      <h3>Best for</h3>
+      <ul>
+        <li>Return visitors who have already done the east coast</li>
+        <li>Road trippers who want a car and the freedom to explore</li>
+        <li>Beach lovers &mdash; the west has the best coastal scenery</li>
+        <li>Food obsessives &mdash; Palermo markets and Trapani seafood</li>
+      </ul>
+
+      <h3>Key distances</h3>
+      <ul>
+        <li>Palermo to Cefal&ugrave;: 45 min by train, 1h by car</li>
+        <li>Palermo to Trapani: 1h 45 min by car, 2h+ by bus</li>
+        <li>Trapani to San Vito Lo Capo: 40 min by car (no direct train)</li>
+        <li>Palermo to Agrigento: 2h by car, 2h 15 min by train</li>
+      </ul>
+
+      <h3>The trade-off</h3>
+      <p>The west is harder without a car. Some of the best destinations (Scopello, Riserva dello Zingaro) are only practical to reach by driving. If you are planning a car-free trip and have under a week, the west coast will feel frustrating.</p>
+    </div>
+
+    <div class="callout warn">
+      <div class="callout-title">The most common mistake</div>
+      <p>Trying to combine Palermo, Cefal&ugrave;, Agrigento, Syracuse, Taormina, and Etna in a single week. You will spend a huge chunk of your holiday on buses and in cars instead of actually being somewhere. If you have 7 days or less, commit to one coast. You will see more by going deep than by going wide.</p>
+    </div>
+
+    <h2>What about the south?</h2>
+
+    <p>The baroque south &mdash; Noto, Modica, Ragusa Ibla &mdash; does not fit neatly into east or west. Geographically it is the southeast corner, and most people visit it from an east coast base (usually Ortigia or Catania).</p>
+
+    <p>If the baroque triangle is a priority, treat it as part of an east coast trip, ideally with a car. The towns are gorgeous but poorly connected by public transport. Without a car, you can see Noto as a day trip from Ortigia. Getting to Ragusa and Modica car-free in the same day is near-impossible.</p>
+
+    <h2>Can you do both coasts?</h2>
+
+    <p>Yes, but only if you have the time. Here is the honest threshold:</p>
+
+    <div class="setup-grid">
+      <div class="setup-card">
+        <div class="setup-card-label">Under 7 days</div>
+        <h3>Pick one coast</h3>
+        <ul>
+          <li>You do not have time for both</li>
+          <li>Crossing the island eats a full day</li>
+          <li>One coast done well beats two done badly</li>
+        </ul>
+      </div>
+      <div class="setup-card">
+        <div class="setup-card-label">10&ndash;14 days</div>
+        <h3>Do both with a car</h3>
+        <ul>
+          <li>Rent a car, one-way if possible</li>
+          <li>Start east, end west (or vice versa)</li>
+          <li>Give each coast 4&ndash;5 days minimum</li>
+          <li>See our <a href="/how-long-should-i-spend-in-sicily/" class="body-link">route planning guide</a> for sample itineraries</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="callout good">
+      <div class="callout-title">The 7-day grey zone</div>
+      <p>Seven days is technically enough to touch both coasts &mdash; but only with a car and only if you are willing to move fast. Most people are happier picking one coast and going deep. If you insist on both, fly into one airport and out the other to avoid backtracking.</p>
+    </div>
+
+    <h2>Verdict</h2>
+
+    <p>If you have under a week, pick one coast. East is the safer, easier choice &mdash; especially for first-timers, families, and anyone travelling without a car. West rewards you with more texture, better beaches, and a more local feel, but it asks more of you logistically.</p>
+
+    <p>If you have 10 days or more, do both. Start on one coast, drive across, and finish on the other. Book a <a href="/do-you-need-a-car-in-sicily/" class="body-link">one-way car rental</a> so you do not waste a day driving back to where you started.</p>
+
+    <p>And if you have exactly 7 days: pick the coast that matches your travel style, not the one that has more famous names. You will enjoy Sicily far more by going deep on one side than by skimming the surface of both.</p>
+
+    <div class="next-decision">
+      <div class="next-label">Next decision to make</div>
+      <div class="next-grid">
+        <a href="/where-to-base-in-sicily/" class="next-card">
+          <div class="next-card-tag">Base &rarr; Next</div>
+          <div class="next-card-title">Where to base in Sicily</div>
+          <div class="next-card-desc">Now that you know your coast, pick the right base for your trip type.</div>
+        </a>
+        <a href="/do-you-need-a-car-in-sicily/" class="next-card">
+          <div class="next-card-tag">Transport</div>
+          <div class="next-card-title">Do you need a car in Sicily?</div>
+          <div class="next-card-desc">The honest answer based on your itinerary, with decision tables and tips.</div>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</article>
+
+<footer>
+  <p>
+    <a href="/">Sicily Trip Planner</a> &nbsp;&middot;&nbsp;
+    <a href="/east-vs-west-sicily/">East vs West</a> &nbsp;&middot;&nbsp;
+    Affiliate disclosure: some links on this site earn us a commission at no cost to you.
+  </p>
+</footer>
+
+</body>
+</html>
