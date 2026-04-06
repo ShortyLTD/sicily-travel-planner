@@ -118,9 +118,9 @@
     }
 
     .hero-tag {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--ink-muted);
       margin-bottom: 12px;
@@ -173,7 +173,9 @@
 
     .template-card:hover {
       border-color: var(--accent);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.02) 0%, rgba(192, 57, 43, 0.01) 100%);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      transform: translateY(-2px);
     }
 
     .template-card:focus-visible {
@@ -284,7 +286,8 @@
     }
 
     .btn-primary:hover {
-      background-color: #a02a22;
+      background: linear-gradient(135deg, #a02a22 0%, #8b2318 100%);
+      box-shadow: 0 2px 8px rgba(192, 57, 43, 0.25);
     }
 
     .btn-secondary {
@@ -303,7 +306,13 @@
       border-radius: 8px;
       padding: 24px;
       margin-bottom: 20px;
+      border-left: 4px solid var(--border);
     }
+
+    .day-card[data-type="arrival"] { border-left-color: var(--green); }
+    .day-card[data-type="activity"] { border-left-color: var(--amber); }
+    .day-card[data-type="transfer"] { border-left-color: var(--accent); }
+    .day-card[data-type="departure"] { border-left-color: var(--ink-faint); }
 
     .day-header {
       display: flex;
@@ -314,7 +323,8 @@
 
     .day-badge {
       font-size: 11px;
-      font-weight: 600;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
       padding: 4px 10px;
       border-radius: 16px;
@@ -357,7 +367,7 @@
     }
 
     .activity-section {
-      margin-bottom: 12px;
+      margin-bottom: 16px;
     }
 
     .activity-time {
@@ -378,20 +388,34 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      border-top: 1px solid var(--border);
+      padding-top: 14px;
+      margin-top: 4px;
+    }
+
+    .booking-count {
+      width: 100%;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 4px;
     }
 
     .booking-link {
       font-size: 13px;
-      padding: 8px 14px;
-      background-color: var(--accent-light);
-      color: var(--accent);
+      font-weight: 600;
+      padding: 10px 16px;
+      background-color: var(--accent);
+      color: white;
       text-decoration: none;
       border-radius: 6px;
       transition: all 0.2s ease;
+      display: inline-block;
     }
 
     .booking-link:hover {
-      background-color: var(--accent);
+      background: linear-gradient(135deg, #a02a22 0%, #8b2318 100%);
+      box-shadow: 0 2px 6px rgba(192, 57, 43, 0.3);
       color: white;
     }
 
@@ -400,13 +424,25 @@
       outline-offset: 2px;
     }
 
+    .booking-summary {
+      background-color: var(--green-light);
+      border-left: 4px solid var(--green);
+      padding: 14px 16px;
+      margin-bottom: 24px;
+      border-radius: 4px;
+      font-size: 13px;
+      color: var(--green);
+      font-weight: 500;
+    }
+
     .itinerary-header {
       margin-bottom: 24px;
     }
 
     .itinerary-header h2 {
       font-size: 32px;
-      margin-bottom: 8px;
+      font-weight: 700;
+      margin-bottom: 12px;
     }
 
     .itinerary-dates {
@@ -452,6 +488,61 @@
       color: var(--ink-faint);
       text-align: center;
       margin-top: 24px;
+    }
+
+    .progress-bar {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 28px;
+    }
+
+    .progress-bar .step {
+      flex: 1;
+      height: 4px;
+      border-radius: 2px;
+      background-color: var(--border);
+      transition: background-color 0.3s ease;
+    }
+
+    .progress-bar .step.done {
+      background-color: var(--accent);
+    }
+
+    .progress-bar .step-labels {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+    }
+
+    .step-label {
+      font-size: 11px;
+      color: var(--ink-faint);
+      text-align: center;
+      flex: 1;
+    }
+
+    .step-label.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .field-error {
+      border-color: var(--accent) !important;
+      box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15) !important;
+    }
+
+    .date-estimate {
+      font-size: 12px;
+      color: var(--ink-muted);
+      margin-top: 6px;
+      min-height: 16px;
+    }
+
+    .airport-rec {
+      font-size: 12px;
+      color: var(--green);
+      font-weight: 600;
+      margin-bottom: 6px;
     }
 
     @media (max-width: 600px) {
@@ -548,8 +639,10 @@
       }
 
       .booking-link {
-        padding: 10px 14px;
+        padding: 12px 16px;
         font-size: 14px;
+        width: 100%;
+        text-align: center;
       }
 
       .itinerary-header h2 {
@@ -584,6 +677,11 @@
   <main>
     <!-- Section 1: Templates -->
     <section class="section active">
+      <div class="progress-bar" id="progress-1">
+        <div class="step done"></div>
+        <div class="step"></div>
+        <div class="step"></div>
+      </div>
       <div class="hero-tag">FREE SICILY ITINERARY TEMPLATES</div>
       <h1>Your Sicily itinerary, day by day</h1>
       <p class="subtitle">Choose from expert-crafted templates. Set your dates. Get a real day-by-day plan with booking links and calendar export — not generic blog advice.</p>
@@ -621,6 +719,11 @@
 
     <!-- Section 2: Config -->
     <section class="section">
+      <div class="progress-bar" id="progress-2">
+        <div class="step done"></div>
+        <div class="step done"></div>
+        <div class="step"></div>
+      </div>
       <h1 id="config-title">Your Trip — Set 3 Things</h1>
 
       <div class="reminder-banner" id="reminder-banner">
@@ -631,15 +734,17 @@
         <div class="form-group">
           <label for="start-date">Start Date</label>
           <input type="date" id="start-date" required>
+          <div class="date-estimate" id="date-estimate"></div>
         </div>
 
         <div class="form-group">
-          <label for="nights">Number of Nights</label>
+          <label for="nights">Number of Nights <span style="font-size: 12px; color: var(--ink-faint); font-weight: 400;">(from template)</span></label>
           <input type="number" id="nights" min="1" max="14" required>
         </div>
 
         <div class="form-group">
           <label for="airport">Arrival Airport</label>
+          <div class="airport-rec" id="airport-rec"></div>
           <select id="airport" required>
             <option value="">Choose one</option>
             <option value="PMO">Palermo (PMO)</option>
@@ -656,6 +761,11 @@
 
     <!-- Section 3: Itinerary -->
     <section class="section">
+      <div class="progress-bar" id="progress-3">
+        <div class="step done"></div>
+        <div class="step done"></div>
+        <div class="step done"></div>
+      </div>
       <div class="itinerary-header">
         <h2 id="itinerary-title">Your Itinerary</h2>
         <div class="itinerary-dates" id="itinerary-dates"></div>
@@ -853,6 +963,7 @@
       sections.forEach((s, i) => {
         s.classList.toggle('active', i === sectionIndex);
       });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
     function handleTemplateClick(e) {
@@ -866,6 +977,20 @@
       document.getElementById('airport').value = currentConfig.airport || '';
       document.getElementById('nights').value = currentTemplate.nights;
 
+      // Airport recommendation
+      var recEl = document.getElementById('airport-rec');
+      if (currentTemplate.defaultAirport) {
+        var recName = currentTemplate.defaultAirport === 'PMO' ? 'Palermo (PMO)' : 'Catania (CTA)';
+        recEl.textContent = recName + ' recommended for this route';
+      } else {
+        recEl.textContent = 'Either airport works for this trip';
+      }
+
+      // Clear previous field errors
+      document.getElementById('start-date').classList.remove('field-error');
+      document.getElementById('airport').classList.remove('field-error');
+      document.getElementById('date-estimate').textContent = '';
+
       showSection(1);
     }
 
@@ -874,19 +999,24 @@
     }
 
     function handleGenerateClick() {
-      const startDate = document.getElementById('start-date').value;
-      const nights = parseInt(document.getElementById('nights').value);
-      const airport = document.getElementById('airport').value;
+      var startDateEl = document.getElementById('start-date');
+      var nightsEl = document.getElementById('nights');
+      var airportEl = document.getElementById('airport');
 
-      if (!startDate || !nights || !airport) {
-        alert('Please fill in all fields.');
-        return;
-      }
+      // Clear previous errors
+      startDateEl.classList.remove('field-error');
+      airportEl.classList.remove('field-error');
+
+      var isValid = true;
+      if (!startDateEl.value) { startDateEl.classList.add('field-error'); isValid = false; }
+      if (!airportEl.value) { airportEl.classList.add('field-error'); isValid = false; }
+      if (!nightsEl.value) { isValid = false; }
+      if (!isValid) return;
 
       currentConfig = {
-        startDate: startDate,
-        nights: nights,
-        airport: airport
+        startDate: startDateEl.value,
+        nights: parseInt(nightsEl.value),
+        airport: airportEl.value
       };
 
       generateItinerary();
@@ -906,7 +1036,7 @@
         let badgeClass = 'day-badge-' + day.type;
         let badgeText = day.type.charAt(0).toUpperCase() + day.type.slice(1);
 
-        html += '<div class="day-card">';
+        html += '<div class="day-card" data-type="' + day.type + '">';
         html += '<div class="day-header">';
         html += '<span class="day-badge ' + badgeClass + '">' + badgeText + '</span>';
         html += '<div><div class="day-title">' + day.title + '</div><div class="day-date">' + dateStr + '</div></div>';
@@ -923,13 +1053,14 @@
 
         if (day.bookings && day.bookings.length > 0) {
           html += '<div class="booking-links">';
+          html += '<div class="booking-count">' + day.bookings.length + ' booking option' + (day.bookings.length > 1 ? 's' : '') + '</div>';
           day.bookings.forEach(booking => {
             if (booking === 'accommodation') {
-              html += '<a href="' + buildBookingURL(day.title, dayDate) + '" class="booking-link" target="_blank">Book accommodation</a>';
+              html += '<a href="' + buildBookingURL(day.title, dayDate) + '" class="booking-link" target="_blank" rel="noopener">Book accommodation</a>';
             } else if (booking === 'tour') {
-              html += '<a href="' + buildGetYourGuideURL(day.title) + '" class="booking-link" target="_blank">Find tours</a>';
+              html += '<a href="' + buildGetYourGuideURL(day.title) + '" class="booking-link" target="_blank" rel="noopener">Book this tour</a>';
             } else if (booking === 'car') {
-              html += '<a href="https://www.discovercars.com/?a_aid=sicily-planner" class="booking-link" target="_blank">Rent a car</a>';
+              html += '<a href="https://www.discovercars.com/?a_aid=sicily-planner" class="booking-link" target="_blank" rel="noopener">Rent a car</a>';
             }
           });
           html += '</div>';
@@ -938,7 +1069,11 @@
         html += '</div>';
       });
 
-      document.getElementById('itinerary-content').innerHTML = html;
+      // Add booking summary banner
+      var bookableDays = days.filter(function(d) { return d.bookings && d.bookings.length > 0; }).length;
+      var summaryHtml = '<div class="booking-summary">' + bookableDays + ' of ' + days.length + ' days have booking links ready. Scroll down to start booking.</div>';
+
+      document.getElementById('itinerary-content').innerHTML = summaryHtml + html;
 
       const endDate = new Date(startDate);
       endDate.setDate(endDate.getDate() + currentTemplate.nights);
@@ -978,6 +1113,16 @@
       link.download = 'sicily-trip.ics';
       link.click();
       URL.revokeObjectURL(url);
+
+      // Success feedback
+      var btn = document.getElementById('export-btn');
+      var orig = btn.textContent;
+      btn.textContent = 'Saved to calendar';
+      btn.style.backgroundColor = 'var(--green)';
+      setTimeout(function() {
+        btn.textContent = orig;
+        btn.style.backgroundColor = '';
+      }, 3000);
     }
 
     function handlePlanAnother() {
@@ -1016,6 +1161,22 @@
     addTap(document.getElementById('generate-btn'), handleGenerateClick);
     addTap(document.getElementById('export-btn'), exportToCalendar);
     addTap(document.getElementById('plan-another-btn'), handlePlanAnother);
+
+    // Live departure date estimate
+    document.getElementById('start-date').addEventListener('change', function() {
+      var nightsVal = parseInt(document.getElementById('nights').value) || 0;
+      if (this.value && nightsVal > 0) {
+        var start = new Date(this.value);
+        var end = new Date(start);
+        end.setDate(end.getDate() + nightsVal);
+        document.getElementById('date-estimate').textContent = 'Departing ' + end.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+      }
+      this.classList.remove('field-error');
+    });
+
+    document.getElementById('airport').addEventListener('change', function() {
+      this.classList.remove('field-error');
+    });
   </script>
 </body>
 </html>
