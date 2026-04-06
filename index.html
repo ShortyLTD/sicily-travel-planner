@@ -10,58 +10,280 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Sicily Trip Planner">
 <meta property="og:url" content="https://sicily.ltd/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Sicily Trip Planner — Plan Your Sicily Trip in the Right Order">
+<meta name="twitter:description" content="Plan your Sicily trip step by step: pick your coast, choose a base, decide on transport, and figure out how long to stay.">
 <link rel="canonical" href="https://sicily.ltd/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 <style>
-:root{--ink:#1a1a18;--ink-muted:#5a5a52;--ink-faint:#8a8a80;--bg:#faf9f6;--bg-warm:#f4f1eb;--bg-card:#fff;--accent:#c0392b;--accent-light:#f9eceb;--green:#27642a;--green-light:#edf4ee;--amber:#8a5a00;--amber-light:#fef6e4;--border:#e2ddd5;--max:740px}
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;font-size:17px}
-nav{border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;gap:32px;background:var(--bg);position:sticky;top:0;z-index:100;overflow-x:auto}
-.logo{font-family:'Lora',serif;font-weight:600;font-size:17px;color:var(--ink);text-decoration:none;letter-spacing:-0.3px;white-space:nowrap;flex-shrink:0}
-.nav-pills{display:flex;gap:8px;flex-wrap:nowrap}
-.nav-pill{font-size:13px;font-weight:500;color:var(--ink-muted);text-decoration:none;padding:5px 12px;border-radius:20px;border:1px solid var(--border);transition:all 0.15s;white-space:nowrap}
-.nav-pill:hover{background:var(--bg-warm);color:var(--ink)}
-.hero{max-width:var(--max);margin:0 auto;padding:80px 24px 48px;text-align:center}
-.hero-tag{display:inline-block;font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--accent);background:var(--accent-light);padding:4px 10px;border-radius:3px;margin-bottom:20px}
-h1{font-family:'Lora',serif;font-size:clamp(28px,5vw,42px);font-weight:600;line-height:1.2;color:var(--ink);letter-spacing:-0.5px;margin-bottom:20px}
-.hero-sub{font-size:18px;color:var(--ink-muted);max-width:520px;margin:0 auto;line-height:1.6}
-.decisions{max-width:var(--max);margin:0 auto;padding:0 24px 80px}
-.decisions-label{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:20px;text-align:center}
-.decision-cards{display:flex;flex-direction:column;gap:16px}
-.decision-card{display:flex;gap:20px;align-items:flex-start;background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:28px;text-decoration:none;color:inherit;transition:border-color 0.15s,box-shadow 0.15s}
-.decision-card:hover{border-color:var(--ink-muted);box-shadow:0 2px 12px rgba(0,0,0,0.06)}
-.step-num{font-family:'Lora',serif;font-size:28px;font-weight:600;color:var(--border);line-height:1;flex-shrink:0;width:32px;text-align:center}
-.decision-card:hover .step-num{color:var(--accent)}
-.card-body{flex:1}
-.card-tag{font-size:11px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px}
-.card-title{font-family:'Lora',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:8px;letter-spacing:-0.3px}
-.card-desc{font-size:15px;color:var(--ink-muted);line-height:1.5}
-.card-arrow{color:var(--border);font-size:20px;flex-shrink:0;align-self:center;transition:color 0.15s}
-.decision-card:hover .card-arrow{color:var(--accent)}
-footer{text-align:center;padding:32px 24px 48px;font-size:13px;color:var(--ink-faint);border-top:1px solid var(--border)}
-footer a{color:var(--ink-faint);text-decoration:none}
-footer a:hover{color:var(--accent)}
-@media(max-width:600px){.decision-card{padding:20px;gap:14px}.step-num{font-size:22px;width:24px}.hero{padding:56px 24px 36px}}
+:root {
+  --ink: #1a1a18;
+  --ink-muted: #5a5a52;
+  --ink-faint: #8a8a80;
+  --bg: #faf9f6;
+  --bg-warm: #f4f1eb;
+  --bg-card: #ffffff;
+  --accent: #c0392b;
+  --accent-light: #f9eceb;
+  --green: #27642a;
+  --green-light: #edf4ee;
+  --amber: #8a5a00;
+  --amber-light: #fef6e4;
+  --border: #e2ddd5;
+  --max: 740px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+nav {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  overflow-x: auto;
+}
+
+.logo {
+  font-family: 'Lora', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  text-decoration: none;
+  letter-spacing: -0.3px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: nowrap;
+}
+
+.nav-pill {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink-muted);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.nav-pill:hover {
+  background: var(--bg-warm);
+  color: var(--ink);
+}
+
+.hero {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 80px 24px 48px;
+  text-align: center;
+}
+
+.hero-tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 3px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ink);
+  letter-spacing: -0.5px;
+  margin-bottom: 20px;
+}
+
+.hero-sub {
+  font-size: 18px;
+  color: var(--ink-muted);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.decisions {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 24px 80px;
+}
+
+.decisions-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.decision-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.decision-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 28px;
+  text-decoration: none;
+  color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.decision-card:hover {
+  border-color: var(--ink-muted);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.step-num {
+  font-family: 'Lora', serif;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--border);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 32px;
+  text-align: center;
+}
+
+.decision-card:hover .step-num {
+  color: var(--accent);
+}
+
+.card-body {
+  flex: 1;
+}
+
+.card-tag {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 6px;
+}
+
+.card-title {
+  font-family: 'Lora', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.3px;
+}
+
+.card-desc {
+  font-size: 15px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+.card-arrow {
+  color: var(--border);
+  font-size: 20px;
+  flex-shrink: 0;
+  align-self: center;
+  transition: color 0.15s;
+}
+
+.decision-card:hover .card-arrow {
+  color: var(--accent);
+}
+
+footer {
+  text-align: center;
+  padding: 32px 24px 48px;
+  font-size: 13px;
+  color: var(--ink-faint);
+  border-top: 1px solid var(--border);
+}
+
+footer a {
+  color: var(--ink-faint);
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: var(--accent);
+}
+
+@media (max-width: 600px) {
+  .decision-card {
+    padding: 20px;
+    gap: 14px;
+  }
+
+  .step-num {
+    font-size: 22px;
+    width: 24px;
+  }
+
+  .hero {
+    padding: 56px 24px 36px;
+  }
+}
 </style>
 </head>
 <body>
+
 <nav>
   <a href="/" class="logo">Sicily Trip Planner</a>
   <div class="nav-pills">
     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+    <a href="#compare" class="nav-pill">Compare</a>
     <a href="/do-you-need-a-car-in-sicily/" class="nav-pill">Transport</a>
   </div>
 </nav>
+
 <div class="hero">
   <div class="hero-tag">Sicily trip planning</div>
   <h1>Plan your Sicily trip in the right order</h1>
   <p class="hero-sub">Most people start with hotels. Start with decisions instead. Four guides, four questions, answered in the order that actually matters.</p>
 </div>
+
 <div class="decisions">
-  <div class="decisions-label">Start here &#8595;</div>
+  <div class="decisions-label">Start here &darr;</div>
   <div class="decision-cards">
+
     <a href="/how-long-should-i-spend-in-sicily/" class="decision-card">
       <div class="step-num">1</div>
       <div class="card-body">
@@ -69,8 +291,9 @@ footer a:hover{color:var(--accent)}
         <div class="card-title">How long should I spend in Sicily?</div>
         <div class="card-desc">3 days, 7 days, or 2 weeks? A realistic breakdown of what you can actually see at each trip length, with sample itineraries.</div>
       </div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card-arrow">&rarr;</div>
     </a>
+
     <a href="/east-vs-west-sicily/" class="decision-card">
       <div class="step-num">2</div>
       <div class="card-body">
@@ -78,17 +301,19 @@ footer a:hover{color:var(--accent)}
         <div class="card-title">East vs west Sicily: which coast fits your trip?</div>
         <div class="card-desc">The answer depends on your trip length, travel style, and tolerance for logistics. Here is how to pick the right coast.</div>
       </div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card-arrow">&rarr;</div>
     </a>
+
     <a href="/where-to-base-in-sicily/" class="decision-card">
       <div class="step-num">3</div>
       <div class="card-body">
         <div class="card-tag">Base</div>
         <div class="card-title">Where to base in Sicily</div>
-        <div class="card-desc">Taormina, Palermo, Ortigia, Catania, or Cefal&#249;? Pick the right home base for your trip type and priorities.</div>
+        <div class="card-desc">Taormina, Palermo, Ortigia, Catania, or Cefal&ugrave;? Pick the right home base for your trip type and priorities.</div>
       </div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card-arrow">&rarr;</div>
     </a>
+
     <a href="/do-you-need-a-car-in-sicily/" class="decision-card">
       <div class="step-num">4</div>
       <div class="card-body">
@@ -96,12 +321,55 @@ footer a:hover{color:var(--accent)}
         <div class="card-title">Do you need a car in Sicily?</div>
         <div class="card-desc">Skip the vague forum advice. A straight answer based on your actual itinerary, with decision tables and rental tips.</div>
       </div>
-      <div class="card-arrow">&#8594;</div>
+      <div class="card-arrow">&rarr;</div>
     </a>
+
   </div>
 </div>
+
+<div class="decisions" id="compare">
+  <div class="decisions-label">Can&rsquo;t decide between two cities? &darr;</div>
+  <div class="decision-cards">
+
+    <a href="/palermo-vs-catania/" class="decision-card">
+      <div class="step-num">&harr;</div>
+      <div class="card-body">
+        <div class="card-tag">Compare</div>
+        <div class="card-title">Palermo vs Catania</div>
+        <div class="card-desc">The coast choice. Fly into Palermo for the west (street food, Erice, Cefal&ugrave;) or Catania for the east (Etna, Taormina, Syracuse).</div>
+      </div>
+      <div class="card-arrow">&rarr;</div>
+    </a>
+
+    <a href="/taormina-vs-cefalu/" class="decision-card">
+      <div class="step-num">&harr;</div>
+      <div class="card-body">
+        <div class="card-tag">Compare</div>
+        <div class="card-title">Taormina vs Cefal&ugrave;</div>
+        <div class="card-desc">Sicily&rsquo;s two best coastal towns. Taormina is glamorous and dramatic; Cefal&ugrave; is relaxed and beachy. Which fits your trip?</div>
+      </div>
+      <div class="card-arrow">&rarr;</div>
+    </a>
+
+    <a href="/taormina-vs-ortigia/" class="decision-card">
+      <div class="step-num">&harr;</div>
+      <div class="card-body">
+        <div class="card-tag">Compare</div>
+        <div class="card-title">Taormina vs Ortigia</div>
+        <div class="card-desc">Two east coast bases, 90 minutes apart. Taormina for scenery and convenience; Ortigia for food, history, and value.</div>
+      </div>
+      <div class="card-arrow">&rarr;</div>
+    </a>
+
+  </div>
+</div>
+
 <footer>
-  <p><a href="/">Sicily Trip Planner</a> &middot; Affiliate disclosure: some links on this site earn us a commission at no cost to you.</p>
+  <p>
+    <a href="/">Sicily Trip Planner</a> &nbsp;&middot;&nbsp;
+    Affiliate disclosure: some links on this site earn us a commission at no cost to you.
+  </p>
 </footer>
+
 </body>
 </html>
