@@ -4,15 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sicily Trip Planner — Plan Your Sicily Trip in the Right Order</title>
-<meta name="description" content="Plan your Sicily trip step by step: pick your coast, choose a base, decide on transport, and figure out how long to stay. No fluff, just decisions.">
+<meta name="description" content="Plan your Sicily trip step by step: pick your route, choose your base, decide on transport, and get a real day-by-day itinerary with booking links. Not generic blog advice.">
 <meta property="og:title" content="Sicily Trip Planner — Plan Your Sicily Trip in the Right Order">
-<meta property="og:description" content="Plan your Sicily trip step by step: pick your coast, choose a base, decide on transport, and figure out how long to stay.">
+<meta property="og:description" content="Plan your Sicily trip step by step. Real itineraries, honest advice, booking links that work.">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Sicily Trip Planner">
 <meta property="og:url" content="https://sicily.ltd/">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sicily Trip Planner — Plan Your Sicily Trip in the Right Order">
-<meta name="twitter:description" content="Plan your Sicily trip step by step: pick your coast, choose a base, decide on transport, and figure out how long to stay.">
 <link rel="canonical" href="https://sicily.ltd/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
@@ -34,11 +32,7 @@
   --max: 740px;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'DM Sans', sans-serif;
@@ -49,12 +43,11 @@ body {
 }
 
 nav {
-  border-bottom: none;
+  background: var(--ink);
   padding: 14px 24px;
   display: flex;
   align-items: center;
   gap: 32px;
-  background: var(--ink);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -72,194 +65,289 @@ nav {
   flex-shrink: 0;
 }
 
-.nav-pills {
-  display: flex;
-  gap: 8px;
-  flex-wrap: nowrap;
-}
+.nav-pills { display: flex; gap: 8px; flex-wrap: nowrap; }
 
 .nav-pill {
   font-size: 13px;
   font-weight: 500;
   color: rgba(253, 248, 243, 0.7);
   text-decoration: none;
-  padding: 5px 12px;
+  padding: 5px 14px;
   border-radius: 20px;
   border: 1px solid rgba(253, 248, 243, 0.2);
-  transition: all 0.15s;
   white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s;
 }
+.nav-pill:hover { color: #fdf8f3; border-color: rgba(253, 248, 243, 0.5); }
+.nav-pill.active { background: var(--accent); color: #fff; border-color: var(--accent); }
 
-.nav-pill:hover {
-  color: #fdf8f3;
-  border-color: rgba(253, 248, 243, 0.5);
-}
-
+/* Hero */
 .hero {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 80px 24px 48px;
+  padding: 64px 24px 40px;
   text-align: center;
 }
 
-.hero-tag {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: var(--accent-light);
-  padding: 4px 10px;
-  border-radius: 3px;
-  margin-bottom: 20px;
-}
-
-h1 {
+.hero h1 {
   font-family: 'Lora', serif;
-  font-size: clamp(28px, 5vw, 42px);
+  font-size: 36px;
   font-weight: 600;
-  line-height: 1.2;
-  color: var(--ink);
-  letter-spacing: -0.5px;
-  margin-bottom: 20px;
+  line-height: 1.25;
+  margin-bottom: 16px;
 }
 
-.hero-sub {
+.hero .subtitle {
   font-size: 18px;
   color: var(--ink-muted);
-  max-width: 520px;
-  margin: 0 auto;
+  max-width: 560px;
+  margin: 0 auto 28px;
   line-height: 1.6;
 }
 
-.decisions {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 24px 80px;
+.hero-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 17px;
+  padding: 15px 36px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.15s;
+  margin-bottom: 12px;
 }
+.hero-cta:hover { background: #a93226; }
 
-.decisions-label {
-  font-size: 11px;
+.hero-secondary {
+  display: block;
+  font-size: 14px;
+  color: var(--ink-faint);
+  margin-top: 8px;
+}
+.hero-secondary a { color: var(--ink-muted); text-decoration: underline; }
+
+/* Content sections */
+.content { max-width: var(--max); margin: 0 auto; padding: 0 24px 64px; }
+
+.section-label {
+  font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--ink-faint);
-  margin-bottom: 20px;
-  text-align: center;
+  margin-bottom: 16px;
 }
 
-.decision-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+h2 {
+  font-family: 'Lora', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  line-height: 1.3;
 }
 
-.decision-card {
-  display: flex;
-  gap: 20px;
-  align-items: flex-start;
-  background: var(--bg-card);
+/* Four-step planning system */
+.steps-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.step-card {
   border: 1px solid var(--border);
   border-radius: 10px;
-  padding: 28px 28px;
+  padding: 20px;
+  background: var(--bg-card);
   text-decoration: none;
-  color: inherit;
+  color: var(--ink);
   transition: border-color 0.15s, box-shadow 0.15s;
 }
+.step-card:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
 
-.decision-card:hover {
-  border-color: var(--ink-muted);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
-
-.step-num {
-  font-family: 'Lora', serif;
-  font-size: 28px;
+.step-number {
+  font-size: 12px;
   font-weight: 600;
-  color: var(--border);
-  line-height: 1;
-  flex-shrink: 0;
-  width: 32px;
-  text-align: center;
-}
-
-.decision-card:hover .step-num {
   color: var(--accent);
-}
-
-.card-body {
-  flex: 1;
-}
-
-.card-tag {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--ink-faint);
   margin-bottom: 6px;
 }
 
-.card-title {
+.step-title {
   font-family: 'Lora', serif;
-  font-size: 19px;
+  font-size: 17px;
   font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 8px;
-  letter-spacing: -0.3px;
+  margin-bottom: 6px;
 }
 
-.card-desc {
-  font-size: 15px;
+.step-desc {
+  font-size: 14px;
   color: var(--ink-muted);
   line-height: 1.5;
 }
 
-.card-arrow {
-  color: var(--border);
-  font-size: 20px;
+/* Compare section */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.compare-link {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 16px;
+  background: var(--bg-card);
+  text-decoration: none;
+  color: var(--ink);
+  text-align: center;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.compare-link:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+.compare-link-title {
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.compare-link-sub {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+/* Trip templates */
+.templates-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.template-link {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 18px 20px;
+  background: var(--bg-card);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.template-link:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+
+.template-link-days {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.template-link-title {
+  font-family: 'Lora', serif;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.template-link-desc {
+  font-size: 13px;
+  color: var(--ink-muted);
+  line-height: 1.5;
+}
+
+/* Trust block */
+.trust-block {
+  background: var(--bg-warm);
+  border-radius: 10px;
+  padding: 32px 28px;
+  margin-bottom: 48px;
+}
+
+.trust-block h2 { margin-bottom: 12px; }
+
+.trust-block p {
+  font-size: 15px;
+  color: var(--ink-muted);
+  margin-bottom: 12px;
+  line-height: 1.7;
+}
+
+.trust-block p:last-child { margin-bottom: 0; }
+
+.trust-points {
+  margin-top: 16px;
+}
+
+.trust-point {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.trust-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--green);
   flex-shrink: 0;
-  align-self: center;
+  margin-top: 7px;
+}
+
+/* Footer */
+footer {
+  background: var(--ink);
+  color: rgba(253, 248, 243, 0.6);
+  padding: 32px 24px;
+  font-size: 13px;
+}
+
+.footer-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.footer-links a {
+  color: rgba(253, 248, 243, 0.7);
+  text-decoration: none;
   transition: color 0.15s;
 }
+.footer-links a:hover { color: #fdf8f3; }
 
-.decision-card:hover .card-arrow {
-  color: var(--accent);
+.footer-disclosure {
+  font-size: 12px;
+  line-height: 1.6;
+  max-width: 560px;
 }
 
-footer {
-  text-align: center;
-  padding: 32px 24px 48px;
-  font-size: 13px;
-  color: rgba(253, 248, 243, 0.6);
-  background-color: var(--ink);
+.footer-updated {
+  font-size: 11px;
+  color: rgba(253, 248, 243, 0.4);
+  margin-top: 12px;
 }
 
-footer a {
-  color: rgba(253, 248, 243, 0.85);
-  text-decoration: none;
-}
-
-footer a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
+/* Mobile */
 @media (max-width: 600px) {
-  .decision-card {
-    padding: 20px;
-    gap: 14px;
-  }
-
-  .step-num {
-    font-size: 22px;
-    width: 24px;
-  }
-
-  .hero {
-    padding: 56px 24px 36px;
-  }
+  .hero h1 { font-size: 28px; }
+  .hero .subtitle { font-size: 16px; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .compare-grid { grid-template-columns: 1fr; }
+  .templates-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
@@ -268,109 +356,130 @@ footer a:hover {
 <nav>
   <a href="/" class="logo">Sicily Trip Planner</a>
   <div class="nav-pills">
-    <a href="/plan/" class="nav-pill" style="background:var(--accent);color:#ffffff;border-color:var(--accent);">Plan</a>
+    <a href="/plan/" class="nav-pill">Plan</a>
     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
-    <a href="#compare" class="nav-pill">Compare</a>
+    <a href="/palermo-vs-catania/" class="nav-pill">Compare</a>
     <a href="/do-you-need-a-car-in-sicily/" class="nav-pill">Transport</a>
   </div>
 </nav>
 
 <div class="hero">
-  <div class="hero-tag">Sicily trip planning</div>
   <h1>Plan your Sicily trip in the right order</h1>
-  <p class="hero-sub">Most people start with hotels. Start with decisions instead. Four guides, four questions, answered in the order that actually matters.</p>
+  <p class="subtitle">Most people start with flights. That is backwards. Start with how long you have, pick your coast, choose a base, then book. This planner walks you through it step by step.</p>
+  <a href="/plan/" class="hero-cta">Build my itinerary &rarr;</a>
+  <span class="hero-secondary">or <a href="/how-long-should-i-spend-in-sicily/">start with how long to spend</a></span>
 </div>
 
-<div class="decisions">
-  <div class="decisions-label">Start here &darr;</div>
-  <div class="decision-cards">
+<div class="content">
 
-    <a href="/how-long-should-i-spend-in-sicily/" class="decision-card">
-      <div class="step-num">1</div>
-      <div class="card-body">
-        <div class="card-tag">Route</div>
-        <div class="card-title">How long should I spend in Sicily?</div>
-        <div class="card-desc">3 days, 7 days, or 2 weeks? A realistic breakdown of what you can actually see at each trip length, with sample itineraries.</div>
-      </div>
-      <div class="card-arrow">&rarr;</div>
+  <div class="section-label">The four decisions that shape your trip</div>
+
+  <div class="steps-grid">
+    <a href="/how-long-should-i-spend-in-sicily/" class="step-card">
+      <div class="step-number">Step 1 &mdash; Route</div>
+      <div class="step-title">How long should I spend?</div>
+      <div class="step-desc">Under 5 days, stay focused. At 7, pick one coast. At 10+, rent a car and do the full loop.</div>
     </a>
-
-    <a href="/east-vs-west-sicily/" class="decision-card">
-      <div class="step-num">2</div>
-      <div class="card-body">
-        <div class="card-tag">Coast</div>
-        <div class="card-title">East vs west Sicily: which coast fits your trip?</div>
-        <div class="card-desc">The answer depends on your trip length, travel style, and tolerance for logistics. Here is how to pick the right coast.</div>
-      </div>
-      <div class="card-arrow">&rarr;</div>
+    <a href="/where-to-base-in-sicily/" class="step-card">
+      <div class="step-number">Step 2 &mdash; Base</div>
+      <div class="step-title">Where should I base?</div>
+      <div class="step-desc">Taormina for scenery, Catania for access, Palermo for food, Ortigia for culture, Cefalu for beach.</div>
     </a>
-
-    <a href="/where-to-base-in-sicily/" class="decision-card">
-      <div class="step-num">3</div>
-      <div class="card-body">
-        <div class="card-tag">Base</div>
-        <div class="card-title">Where to base in Sicily</div>
-        <div class="card-desc">Taormina, Palermo, Ortigia, Catania, or Cefal&ugrave;? Pick the right home base for your trip type and priorities.</div>
-      </div>
-      <div class="card-arrow">&rarr;</div>
+    <a href="/east-vs-west-sicily/" class="step-card">
+      <div class="step-number">Step 3 &mdash; Coast</div>
+      <div class="step-title">East coast or west coast?</div>
+      <div class="step-desc">East is easier and more popular. West is deeper and more local. Under 7 days, pick one.</div>
     </a>
-
-    <a href="/do-you-need-a-car-in-sicily/" class="decision-card">
-      <div class="step-num">4</div>
-      <div class="card-body">
-        <div class="card-tag">Transport</div>
-        <div class="card-title">Do you need a car in Sicily?</div>
-        <div class="card-desc">Skip the vague forum advice. A straight answer based on your actual itinerary, with decision tables and rental tips.</div>
-      </div>
-      <div class="card-arrow">&rarr;</div>
+    <a href="/do-you-need-a-car-in-sicily/" class="step-card">
+      <div class="step-number">Step 4 &mdash; Transport</div>
+      <div class="step-title">Do I need a car?</div>
+      <div class="step-desc">East coast cities: no. West coast or full island: yes. Short beach trip: maybe. We break it down.</div>
     </a>
-
   </div>
-</div>
 
-<div class="decisions" id="compare">
-  <div class="decisions-label">Can&rsquo;t decide between two cities? &darr;</div>
-  <div class="decision-cards">
+  <div class="section-label" id="compare">Not sure which city? Compare them</div>
 
-    <a href="/palermo-vs-catania/" class="decision-card">
-      <div class="step-num">&harr;</div>
-      <div class="card-body">
-        <div class="card-tag">Compare</div>
-        <div class="card-title">Palermo vs Catania</div>
-        <div class="card-desc">The coast choice. Fly into Palermo for the west (street food, Erice, Cefal&ugrave;) or Catania for the east (Etna, Taormina, Syracuse).</div>
-      </div>
-      <div class="card-arrow">&rarr;</div>
+  <div class="compare-grid">
+    <a href="/palermo-vs-catania/" class="compare-link">
+      <div class="compare-link-title">Palermo vs Catania</div>
+      <div class="compare-link-sub">A coast choice, not a city choice</div>
     </a>
-
-    <a href="/taormina-vs-cefalu/" class="decision-card">
-      <div class="step-num">&harr;</div>
-      <div class="card-body">
-        <div class="card-tag">Compare</div>
-        <div class="card-title">Taormina vs Cefal&ugrave;</div>
-        <div class="card-desc">Sicily&rsquo;s two best coastal towns. Taormina is glamorous and dramatic; Cefal&ugrave; is relaxed and beachy. Which fits your trip?</div>
-      </div>
-      <div class="card-arrow">&rarr;</div>
+    <a href="/taormina-vs-cefalu/" class="compare-link">
+      <div class="compare-link-title">Taormina vs Cefalu</div>
+      <div class="compare-link-sub">Clifftop glamour vs sandy low-key</div>
     </a>
-
-    <a href="/taormina-vs-ortigia/" class="decision-card">
-      <div class="step-num">&harr;</div>
-      <div class="card-body">
-        <div class="card-tag">Compare</div>
-        <div class="card-title">Taormina vs Ortigia</div>
-        <div class="card-desc">Two east coast bases, 90 minutes apart. Taormina for scenery and convenience; Ortigia for food, history, and value.</div>
-      </div>
-      <div class="card-arrow">&rarr;</div>
+    <a href="/taormina-vs-ortigia/" class="compare-link">
+      <div class="compare-link-title">Taormina vs Ortigia</div>
+      <div class="compare-link-sub">Views vs authenticity</div>
     </a>
-
   </div>
+
+  <div class="section-label">Most common trip types</div>
+
+  <div class="templates-grid">
+    <a href="/plan/" class="template-link">
+      <div class="template-link-days">7 days</div>
+      <div class="template-link-title">East Coast Highlights</div>
+      <div class="template-link-desc">Catania, Etna, Taormina, Syracuse. The most popular first-timer route.</div>
+    </a>
+    <a href="/plan/" class="template-link">
+      <div class="template-link-days">5 days</div>
+      <div class="template-link-title">West Coast Food Trip</div>
+      <div class="template-link-desc">Palermo markets, Erice, Trapani salt flats, Cefalu beach.</div>
+    </a>
+    <a href="/plan/" class="template-link">
+      <div class="template-link-days">10 days</div>
+      <div class="template-link-title">Full Island Loop</div>
+      <div class="template-link-desc">Fly in one side, drive across, fly out the other. Everything, no regrets.</div>
+    </a>
+    <a href="/plan/" class="template-link">
+      <div class="template-link-days">3 days</div>
+      <div class="template-link-title">Quick City Break</div>
+      <div class="template-link-desc">Land, explore, one big day trip, markets, depart. Best for tight schedules.</div>
+    </a>
+  </div>
+
+  <div class="trust-block">
+    <h2>How this planner works</h2>
+    <p>Sicily Trip Planner is built to help you make real decisions, not to sell you on a destination you have already chosen. Every recommendation is based on practical travel experience, current transport connections, and honest cost estimates.</p>
+    <div class="trust-points">
+      <div class="trust-point">
+        <div class="trust-dot"></div>
+        <div>Recommendations follow a decision tree: route first, then base, then transport. This order prevents the most common planning mistakes.</div>
+      </div>
+      <div class="trust-point">
+        <div class="trust-dot"></div>
+        <div>Budget estimates use mid-range prices checked against current Booking.com and DiscoverCars listings. We update them when rates shift materially.</div>
+      </div>
+      <div class="trust-point">
+        <div class="trust-dot"></div>
+        <div>Some links are affiliate links (Booking.com, GetYourGuide, DiscoverCars). We earn a commission if you book through them, at no extra cost to you. This is how the site stays free.</div>
+      </div>
+      <div class="trust-point">
+        <div class="trust-dot"></div>
+        <div>We do not recommend anything we would not book ourselves. If we think you should skip the car, we will tell you &mdash; even though we earn from car rental links.</div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <footer>
-  <p>
-    <a href="/">Sicily Trip Planner</a> &nbsp;&middot;&nbsp;
-    Affiliate disclosure: some links on this site earn us a commission at no cost to you.
-  </p>
+  <div class="footer-inner">
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/plan/">Trip Planner</a>
+      <a href="/how-long-should-i-spend-in-sicily/">Route Guide</a>
+      <a href="/where-to-base-in-sicily/">Base Guide</a>
+      <a href="/palermo-vs-catania/">Compare Cities</a>
+      <a href="/do-you-need-a-car-in-sicily/">Transport Guide</a>
+    </div>
+    <div class="footer-disclosure">
+      <strong>Affiliate disclosure:</strong> Some links on this site are affiliate links to Booking.com, GetYourGuide, and DiscoverCars. We earn a commission if you book through these links, at no additional cost to you. This revenue supports the research, writing, and maintenance of Sicily Trip Planner. Our recommendations are editorially independent and based on practical travel data.
+    </div>
+    <div class="footer-updated">Last updated April 2026</div>
+  </div>
 </footer>
 
 </body>
