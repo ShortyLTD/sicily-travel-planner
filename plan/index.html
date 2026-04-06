@@ -167,6 +167,8 @@
       transition: all 0.3s ease;
       display: flex;
       flex-direction: column;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: rgba(192, 57, 43, 0.1);
     }
 
     .template-card:hover {
@@ -268,6 +270,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.2s ease;
+      touch-action: manipulation;
     }
 
     button:focus-visible {
@@ -459,7 +462,7 @@
       nav > div:first-child {
         flex-direction: column;
         align-items: flex-start;
-        gap: 12px;
+        gap: 10px;
       }
 
       .logo {
@@ -467,7 +470,16 @@
       }
 
       .nav-pills {
-        gap: 8px;
+        gap: 6px;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+      }
+
+      .nav-pill {
+        padding: 6px 12px;
+        font-size: 13px;
       }
 
       main {
@@ -475,23 +487,82 @@
       }
 
       h1 {
-        font-size: 28px;
+        font-size: 26px;
+        line-height: 1.2;
       }
 
       .subtitle {
         font-size: 14px;
       }
 
+      .decision-helper {
+        font-size: 13px;
+        padding: 12px;
+      }
+
       .template-grid {
         grid-template-columns: 1fr;
+      }
+
+      .template-card {
+        padding: 18px;
+      }
+
+      .template-card h3 {
+        font-size: 16px;
+      }
+
+      .config-form {
+        gap: 16px;
+      }
+
+      .form-group input,
+      .form-group select {
+        font-size: 16px;
       }
 
       .button-group {
         grid-template-columns: 1fr;
       }
 
+      button {
+        padding: 14px 20px;
+        width: 100%;
+      }
+
+      .day-card {
+        padding: 16px;
+      }
+
+      .day-header {
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .day-badge {
+        align-self: flex-start;
+      }
+
+      .day-title {
+        font-size: 15px;
+      }
+
+      .booking-link {
+        padding: 10px 14px;
+        font-size: 14px;
+      }
+
       .itinerary-header h2 {
-        font-size: 24px;
+        font-size: 22px;
+      }
+
+      .seasonal-tip {
+        font-size: 13px;
+        padding: 12px;
+      }
+
+      .export-button button {
+        width: 100%;
       }
     }
   </style>
@@ -917,18 +988,34 @@
       showSection(0);
     }
 
-    // Event listeners
+    // Event listeners — use touchend + click for reliable mobile taps
+    function addTap(el, handler) {
+      let touched = false;
+      el.addEventListener('touchend', function(e) {
+        touched = true;
+        e.preventDefault();
+        handler(e);
+      });
+      el.addEventListener('click', function(e) {
+        if (!touched) handler(e);
+        touched = false;
+      });
+    }
+
     document.querySelectorAll('.template-card').forEach(card => {
-      card.addEventListener('click', handleTemplateClick);
+      addTap(card, handleTemplateClick);
       card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') handleTemplateClick(e);
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleTemplateClick(e);
+        }
       });
     });
 
-    document.getElementById('back-btn').addEventListener('click', handleBackClick);
-    document.getElementById('generate-btn').addEventListener('click', handleGenerateClick);
-    document.getElementById('export-btn').addEventListener('click', exportToCalendar);
-    document.getElementById('plan-another-btn').addEventListener('click', handlePlanAnother);
+    addTap(document.getElementById('back-btn'), handleBackClick);
+    addTap(document.getElementById('generate-btn'), handleGenerateClick);
+    addTap(document.getElementById('export-btn'), exportToCalendar);
+    addTap(document.getElementById('plan-another-btn'), handlePlanAnother);
   </script>
 </body>
 </html>
