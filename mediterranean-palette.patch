@@ -1,0 +1,830 @@
+diff --git a/do-you-need-a-car-in-sicily/index.html b/do-you-need-a-car-in-sicily/index.html
+index a64d76d..dd60fd1 100644
+--- a/do-you-need-a-car-in-sicily/index.html
++++ b/do-you-need-a-car-in-sicily/index.html
+@@ -18,19 +18,19 @@
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+-  --ink: #1a1a18;
+-  --ink-muted: #5a5a52;
+-  --ink-faint: #8a8a80;
+-  --bg: #faf9f6;
+-  --bg-warm: #f4f1eb;
++  --ink: #2c2418;
++  --ink-muted: #6b5d4f;
++  --ink-faint: #9a8e80;
++  --bg: #fdf8f3;
++  --bg-warm: #f5ede3;
+   --bg-card: #ffffff;
+-  --accent: #c0392b;
+-  --accent-light: #f9eceb;
+-  --green: #27642a;
+-  --green-light: #edf4ee;
+-  --amber: #8a5a00;
+-  --amber-light: #fef6e4;
+-  --border: #e2ddd5;
++  --accent: #bf4a2a;
++  --accent-light: #fdf0ec;
++  --green: #2d7a3a;
++  --green-light: #edf7ef;
++  --amber: #b87a00;
++  --amber-light: #fef6e0;
++  --border: #e0d6c8;
+   --max: 740px;
+ }
+ 
+@@ -50,12 +50,12 @@ body {
+ 
+ /* NAV */
+ nav {
+-  border-bottom: 1px solid var(--border);
++  border-bottom: none;
+   padding: 14px 24px;
+   display: flex;
+   align-items: center;
+   gap: 32px;
+-  background: var(--bg);
++  background: var(--ink);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+@@ -66,7 +66,7 @@ nav {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 17px;
+-  color: var(--ink);
++  color: #fdf8f3;
+   text-decoration: none;
+   letter-spacing: -0.3px;
+   white-space: nowrap;
+@@ -82,24 +82,24 @@ nav {
+ .nav-pill {
+   font-size: 13px;
+   font-weight: 500;
+-  color: var(--ink-muted);
++  color: rgba(253, 248, 243, 0.7);
+   text-decoration: none;
+   padding: 5px 12px;
+   border-radius: 20px;
+-  border: 1px solid var(--border);
++  border: 1px solid rgba(253, 248, 243, 0.2);
+   transition: all 0.15s;
+   white-space: nowrap;
+ }
+ 
+ .nav-pill:hover {
+-  background: var(--bg-warm);
+-  color: var(--ink);
++  color: #fdf8f3;
++  border-color: rgba(253, 248, 243, 0.5);
+ }
+ 
+ .nav-pill.active {
+-  background: var(--ink);
+-  color: #fff;
+-  border-color: var(--ink);
++  background: var(--accent);
++  color: #ffffff;
++  border-color: var(--accent);
+ }
+ 
+ /* HERO */
+@@ -545,20 +545,21 @@ tbody tr:hover td {
+ 
+ /* FOOTER */
+ footer {
+-  border-top: 1px solid var(--border);
++  background-color: var(--ink);
+   padding: 24px;
+   text-align: center;
+   font-size: 13px;
+-  color: var(--ink-faint);
++  color: rgba(253, 248, 243, 0.6);
+ }
+ 
+ footer a {
+-  color: var(--ink-faint);
++  color: rgba(253, 248, 243, 0.85);
+   text-decoration: none;
+ }
+ 
+ footer a:hover {
+-  color: var(--ink);
++  color: #ffffff;
++  text-decoration: underline;
+ }
+ </style>
+ <script type="application/ld+json">
+@@ -667,6 +668,7 @@ footer a:hover {
+ <nav>
+   <a href="/" class="logo">Sicily Trip Planner</a>
+   <div class="nav-pills">
++    <a href="/plan/" class="nav-pill">Plan</a>
+     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+     <a href="/palermo-vs-catania/" class="nav-pill">Compare</a>
+diff --git a/east-vs-west-sicily/index.html b/east-vs-west-sicily/index.html
+index 9ecffab..6e0a113 100644
+--- a/east-vs-west-sicily/index.html
++++ b/east-vs-west-sicily/index.html
+@@ -18,19 +18,19 @@
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+-  --ink: #1a1a18;
+-  --ink-muted: #5a5a52;
+-  --ink-faint: #8a8a80;
+-  --bg: #faf9f6;
+-  --bg-warm: #f4f1eb;
++  --ink: #2c2418;
++  --ink-muted: #6b5d4f;
++  --ink-faint: #9a8e80;
++  --bg: #fdf8f3;
++  --bg-warm: #f5ede3;
+   --bg-card: #ffffff;
+-  --accent: #c0392b;
+-  --accent-light: #f9eceb;
+-  --green: #27642a;
+-  --green-light: #edf4ee;
+-  --amber: #8a5a00;
+-  --amber-light: #fef6e4;
+-  --border: #e2ddd5;
++  --accent: #bf4a2a;
++  --accent-light: #fdf0ec;
++  --green: #2d7a3a;
++  --green-light: #edf7ef;
++  --amber: #b87a00;
++  --amber-light: #fef6e0;
++  --border: #e0d6c8;
+   --max: 740px;
+ }
+ 
+@@ -49,12 +49,12 @@ body {
+ }
+ 
+ nav {
+-  border-bottom: 1px solid var(--border);
++  border-bottom: none;
+   padding: 14px 24px;
+   display: flex;
+   align-items: center;
+   gap: 32px;
+-  background: var(--bg);
++  background: var(--ink);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+@@ -65,7 +65,7 @@ nav {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 17px;
+-  color: var(--ink);
++  color: #fdf8f3;
+   text-decoration: none;
+   letter-spacing: -0.3px;
+   white-space: nowrap;
+@@ -81,24 +81,24 @@ nav {
+ .nav-pill {
+   font-size: 13px;
+   font-weight: 500;
+-  color: var(--ink-muted);
++  color: rgba(253, 248, 243, 0.7);
+   text-decoration: none;
+   padding: 5px 12px;
+   border-radius: 20px;
+-  border: 1px solid var(--border);
++  border: 1px solid rgba(253, 248, 243, 0.2);
+   transition: all 0.15s;
+   white-space: nowrap;
+ }
+ 
+ .nav-pill:hover {
+-  background: var(--bg-warm);
+-  color: var(--ink);
++  color: #fdf8f3;
++  border-color: rgba(253, 248, 243, 0.5);
+ }
+ 
+ .nav-pill.active {
+-  background: var(--ink);
+-  color: #fff;
+-  border-color: var(--ink);
++  background: var(--accent);
++  color: #ffffff;
++  border-color: var(--accent);
+ }
+ 
+ .hero {
+@@ -502,20 +502,21 @@ tbody tr:hover td {
+ }
+ 
+ footer {
+-  border-top: 1px solid var(--border);
++  background-color: var(--ink);
+   padding: 24px;
+   text-align: center;
+   font-size: 13px;
+-  color: var(--ink-faint);
++  color: rgba(253, 248, 243, 0.6);
+ }
+ 
+ footer a {
+-  color: var(--ink-faint);
++  color: rgba(253, 248, 243, 0.85);
+   text-decoration: none;
+ }
+ 
+ footer a:hover {
+-  color: var(--ink);
++  color: #ffffff;
++  text-decoration: underline;
+ }
+ </style>
+ <script type="application/ld+json">
+@@ -589,6 +590,7 @@ footer a:hover {
+ <nav>
+   <a href="/" class="logo">Sicily Trip Planner</a>
+   <div class="nav-pills">
++    <a href="/plan/" class="nav-pill">Plan</a>
+     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+     <a href="/palermo-vs-catania/" class="nav-pill">Compare</a>
+diff --git a/how-long-should-i-spend-in-sicily/index.html b/how-long-should-i-spend-in-sicily/index.html
+index 249616a..5e27f51 100644
+--- a/how-long-should-i-spend-in-sicily/index.html
++++ b/how-long-should-i-spend-in-sicily/index.html
+@@ -18,19 +18,19 @@
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+-  --ink: #1a1a18;
+-  --ink-muted: #5a5a52;
+-  --ink-faint: #8a8a80;
+-  --bg: #faf9f6;
+-  --bg-warm: #f4f1eb;
++  --ink: #2c2418;
++  --ink-muted: #6b5d4f;
++  --ink-faint: #9a8e80;
++  --bg: #fdf8f3;
++  --bg-warm: #f5ede3;
+   --bg-card: #ffffff;
+-  --accent: #c0392b;
+-  --accent-light: #f9eceb;
+-  --green: #27642a;
+-  --green-light: #edf4ee;
+-  --amber: #8a5a00;
+-  --amber-light: #fef6e4;
+-  --border: #e2ddd5;
++  --accent: #bf4a2a;
++  --accent-light: #fdf0ec;
++  --green: #2d7a3a;
++  --green-light: #edf7ef;
++  --amber: #b87a00;
++  --amber-light: #fef6e0;
++  --border: #e0d6c8;
+   --max: 740px;
+ }
+ 
+@@ -49,12 +49,12 @@ body {
+ }
+ 
+ nav {
+-  border-bottom: 1px solid var(--border);
++  border-bottom: none;
+   padding: 14px 24px;
+   display: flex;
+   align-items: center;
+   gap: 32px;
+-  background: var(--bg);
++  background: var(--ink);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+@@ -65,7 +65,7 @@ nav {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 17px;
+-  color: var(--ink);
++  color: #fdf8f3;
+   text-decoration: none;
+   letter-spacing: -0.3px;
+   white-space: nowrap;
+@@ -81,24 +81,24 @@ nav {
+ .nav-pill {
+   font-size: 13px;
+   font-weight: 500;
+-  color: var(--ink-muted);
++  color: rgba(253, 248, 243, 0.7);
+   text-decoration: none;
+   padding: 5px 12px;
+   border-radius: 20px;
+-  border: 1px solid var(--border);
++  border: 1px solid rgba(253, 248, 243, 0.2);
+   transition: all 0.15s;
+   white-space: nowrap;
+ }
+ 
+ .nav-pill:hover {
+-  background: var(--bg-warm);
+-  color: var(--ink);
++  color: #fdf8f3;
++  border-color: rgba(253, 248, 243, 0.5);
+ }
+ 
+ .nav-pill.active {
+-  background: var(--ink);
+-  color: #fff;
+-  border-color: var(--ink);
++  background: var(--accent);
++  color: #ffffff;
++  border-color: var(--accent);
+ }
+ 
+ .hero {
+@@ -519,20 +519,21 @@ tbody tr:hover td {
+ }
+ 
+ footer {
+-  border-top: 1px solid var(--border);
++  background-color: var(--ink);
+   padding: 24px;
+   text-align: center;
+   font-size: 13px;
+-  color: var(--ink-faint);
++  color: rgba(253, 248, 243, 0.6);
+ }
+ 
+ footer a {
+-  color: var(--ink-faint);
++  color: rgba(253, 248, 243, 0.85);
+   text-decoration: none;
+ }
+ 
+ footer a:hover {
+-  color: var(--ink);
++  color: #ffffff;
++  text-decoration: underline;
+ }
+ </style>
+ <script type="application/ld+json">
+@@ -614,6 +615,7 @@ footer a:hover {
+ <nav>
+   <a href="/" class="logo">Sicily Trip Planner</a>
+   <div class="nav-pills">
++    <a href="/plan/" class="nav-pill">Plan</a>
+     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill active">Route</a>
+     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+     <a href="/palermo-vs-catania/" class="nav-pill">Compare</a>
+diff --git a/palermo-vs-catania/index.html b/palermo-vs-catania/index.html
+index 2c5985a..1435645 100644
+--- a/palermo-vs-catania/index.html
++++ b/palermo-vs-catania/index.html
+@@ -18,19 +18,19 @@
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+-  --ink: #1a1a18;
+-  --ink-muted: #5a5a52;
+-  --ink-faint: #8a8a80;
+-  --bg: #faf9f6;
+-  --bg-warm: #f4f1eb;
++  --ink: #2c2418;
++  --ink-muted: #6b5d4f;
++  --ink-faint: #9a8e80;
++  --bg: #fdf8f3;
++  --bg-warm: #f5ede3;
+   --bg-card: #ffffff;
+-  --accent: #c0392b;
+-  --accent-light: #f9eceb;
+-  --green: #27642a;
+-  --green-light: #edf4ee;
+-  --amber: #8a5a00;
+-  --amber-light: #fef6e4;
+-  --border: #e2ddd5;
++  --accent: #bf4a2a;
++  --accent-light: #fdf0ec;
++  --green: #2d7a3a;
++  --green-light: #edf7ef;
++  --amber: #b87a00;
++  --amber-light: #fef6e0;
++  --border: #e0d6c8;
+   --max: 740px;
+ }
+ 
+@@ -49,12 +49,12 @@ body {
+ }
+ 
+ nav {
+-  border-bottom: 1px solid var(--border);
++  background: var(--ink);
++  border-bottom: none;
+   padding: 14px 24px;
+   display: flex;
+   align-items: center;
+   gap: 32px;
+-  background: var(--bg);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+@@ -65,7 +65,7 @@ nav {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 17px;
+-  color: var(--ink);
++  color: #fdf8f3;
+   text-decoration: none;
+   letter-spacing: -0.3px;
+   white-space: nowrap;
+@@ -75,12 +75,18 @@ nav {
+ .nav-pills { display: flex; gap: 8px; flex-wrap: nowrap; }
+ 
+ .nav-pill {
+-  font-size: 13px; font-weight: 500; color: var(--ink-muted);
+-  text-decoration: none; padding: 5px 12px; border-radius: 20px;
+-  border: 1px solid var(--border); transition: all 0.15s; white-space: nowrap;
++  font-size: 13px;
++  font-weight: 500;
++  color: rgba(253, 248, 243, 0.7);
++  text-decoration: none;
++  padding: 5px 12px;
++  border-radius: 20px;
++  border: 1px solid rgba(253, 248, 243, 0.2);
++  transition: all 0.15s;
++  white-space: nowrap;
+ }
+-.nav-pill:hover { background: var(--bg-warm); color: var(--ink); }
+-.nav-pill.active { background: var(--ink); color: #fff; border-color: var(--ink); }
++.nav-pill:hover { color: #fdf8f3; border-color: rgba(253, 248, 243, 0.5); }
++.nav-pill.active { background: var(--accent); color: #ffffff; border-color: var(--accent); }
+ 
+ .hero { max-width: var(--max); margin: 0 auto; padding: 56px 24px 40px; }
+ .breadcrumb { font-size: 13px; color: var(--ink-faint); margin-bottom: 20px; }
+@@ -178,12 +184,9 @@ tbody tr:hover td { background: var(--bg-warm); }
+ .next-card-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+ .next-card-desc { font-size: 13px; color: var(--ink-muted); }
+ 
+-footer {
+-  border-top: 1px solid var(--border); padding: 24px; text-align: center;
+-  font-size: 13px; color: var(--ink-faint);
+-}
+-footer a { color: var(--ink-faint); text-decoration: none; }
+-footer a:hover { color: var(--ink); }
++footer { background-color: var(--ink); padding: 24px; text-align: center; font-size: 13px; color: rgba(253, 248, 243, 0.6); }
++footer a { color: rgba(253, 248, 243, 0.85); text-decoration: none; }
++footer a:hover { color: #ffffff; text-decoration: underline; }
+ </style>
+ <script type="application/ld+json">
+ {
+@@ -263,6 +266,7 @@ footer a:hover { color: var(--ink); }
+ <nav>
+   <a href="/" class="logo">Sicily Trip Planner</a>
+   <div class="nav-pills">
++    <a href="/plan/" class="nav-pill">Plan</a>
+     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+     <a href="/do-you-need-a-car-in-sicily/" class="nav-pill">Transport</a>
+diff --git a/taormina-vs-cefalu/index.html b/taormina-vs-cefalu/index.html
+index 9104679..c0e3fe1 100644
+--- a/taormina-vs-cefalu/index.html
++++ b/taormina-vs-cefalu/index.html
+@@ -18,19 +18,19 @@
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+-  --ink: #1a1a18;
+-  --ink-muted: #5a5a52;
+-  --ink-faint: #8a8a80;
+-  --bg: #faf9f6;
+-  --bg-warm: #f4f1eb;
++  --ink: #2c2418;
++  --ink-muted: #6b5d4f;
++  --ink-faint: #9a8e80;
++  --bg: #fdf8f3;
++  --bg-warm: #f5ede3;
+   --bg-card: #ffffff;
+-  --accent: #c0392b;
+-  --accent-light: #f9eceb;
+-  --green: #27642a;
+-  --green-light: #edf4ee;
+-  --amber: #8a5a00;
+-  --amber-light: #fef6e4;
+-  --border: #e2ddd5;
++  --accent: #bf4a2a;
++  --accent-light: #fdf0ec;
++  --green: #2d7a3a;
++  --green-light: #edf7ef;
++  --amber: #b87a00;
++  --amber-light: #fef6e0;
++  --border: #e0d6c8;
+   --max: 740px;
+ }
+ 
+@@ -49,12 +49,12 @@ body {
+ }
+ 
+ nav {
+-  border-bottom: 1px solid var(--border);
++  background: var(--ink);
++  border-bottom: none;
+   padding: 14px 24px;
+   display: flex;
+   align-items: center;
+   gap: 32px;
+-  background: var(--bg);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+@@ -65,7 +65,7 @@ nav {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 17px;
+-  color: var(--ink);
++  color: #fdf8f3;
+   text-decoration: none;
+   letter-spacing: -0.3px;
+   white-space: nowrap;
+@@ -75,12 +75,18 @@ nav {
+ .nav-pills { display: flex; gap: 8px; flex-wrap: nowrap; }
+ 
+ .nav-pill {
+-  font-size: 13px; font-weight: 500; color: var(--ink-muted);
+-  text-decoration: none; padding: 5px 12px; border-radius: 20px;
+-  border: 1px solid var(--border); transition: all 0.15s; white-space: nowrap;
++  font-size: 13px;
++  font-weight: 500;
++  color: rgba(253, 248, 243, 0.7);
++  text-decoration: none;
++  padding: 5px 12px;
++  border-radius: 20px;
++  border: 1px solid rgba(253, 248, 243, 0.2);
++  transition: all 0.15s;
++  white-space: nowrap;
+ }
+-.nav-pill:hover { background: var(--bg-warm); color: var(--ink); }
+-.nav-pill.active { background: var(--ink); color: #fff; border-color: var(--ink); }
++.nav-pill:hover { color: #fdf8f3; border-color: rgba(253, 248, 243, 0.5); }
++.nav-pill.active { background: var(--accent); color: #ffffff; border-color: var(--accent); }
+ 
+ .hero { max-width: var(--max); margin: 0 auto; padding: 56px 24px 40px; }
+ .breadcrumb { font-size: 13px; color: var(--ink-faint); margin-bottom: 20px; }
+@@ -183,12 +189,9 @@ tbody tr:hover td { background: var(--bg-warm); }
+ .next-card-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+ .next-card-desc { font-size: 13px; color: var(--ink-muted); }
+ 
+-footer {
+-  border-top: 1px solid var(--border); padding: 24px; text-align: center;
+-  font-size: 13px; color: var(--ink-faint);
+-}
+-footer a { color: var(--ink-faint); text-decoration: none; }
+-footer a:hover { color: var(--ink); }
++footer { background-color: var(--ink); padding: 24px; text-align: center; font-size: 13px; color: rgba(253, 248, 243, 0.6); }
++footer a { color: rgba(253, 248, 243, 0.85); text-decoration: none; }
++footer a:hover { color: #ffffff; text-decoration: underline; }
+ </style>
+ <script type="application/ld+json">
+ {
+@@ -268,6 +271,7 @@ footer a:hover { color: var(--ink); }
+ <nav>
+   <a href="/" class="logo">Sicily Trip Planner</a>
+   <div class="nav-pills">
++    <a href="/plan/" class="nav-pill">Plan</a>
+     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+     <a href="/taormina-vs-cefalu/" class="nav-pill active">Compare</a>
+diff --git a/taormina-vs-ortigia/index.html b/taormina-vs-ortigia/index.html
+index 7d0e07f..2303f15 100644
+--- a/taormina-vs-ortigia/index.html
++++ b/taormina-vs-ortigia/index.html
+@@ -18,19 +18,19 @@
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+-  --ink: #1a1a18;
+-  --ink-muted: #5a5a52;
+-  --ink-faint: #8a8a80;
+-  --bg: #faf9f6;
+-  --bg-warm: #f4f1eb;
++  --ink: #2c2418;
++  --ink-muted: #6b5d4f;
++  --ink-faint: #9a8e80;
++  --bg: #fdf8f3;
++  --bg-warm: #f5ede3;
+   --bg-card: #ffffff;
+-  --accent: #c0392b;
+-  --accent-light: #f9eceb;
+-  --green: #27642a;
+-  --green-light: #edf4ee;
+-  --amber: #8a5a00;
+-  --amber-light: #fef6e4;
+-  --border: #e2ddd5;
++  --accent: #bf4a2a;
++  --accent-light: #fdf0ec;
++  --green: #2d7a3a;
++  --green-light: #edf7ef;
++  --amber: #b87a00;
++  --amber-light: #fef6e0;
++  --border: #e0d6c8;
+   --max: 740px;
+ }
+ 
+@@ -49,12 +49,12 @@ body {
+ }
+ 
+ nav {
+-  border-bottom: 1px solid var(--border);
++  background: var(--ink);
++  border-bottom: none;
+   padding: 14px 24px;
+   display: flex;
+   align-items: center;
+   gap: 32px;
+-  background: var(--bg);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+@@ -65,7 +65,7 @@ nav {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 17px;
+-  color: var(--ink);
++  color: #fdf8f3;
+   text-decoration: none;
+   letter-spacing: -0.3px;
+   white-space: nowrap;
+@@ -75,12 +75,18 @@ nav {
+ .nav-pills { display: flex; gap: 8px; flex-wrap: nowrap; }
+ 
+ .nav-pill {
+-  font-size: 13px; font-weight: 500; color: var(--ink-muted);
+-  text-decoration: none; padding: 5px 12px; border-radius: 20px;
+-  border: 1px solid var(--border); transition: all 0.15s; white-space: nowrap;
++  font-size: 13px;
++  font-weight: 500;
++  color: rgba(253, 248, 243, 0.7);
++  text-decoration: none;
++  padding: 5px 12px;
++  border-radius: 20px;
++  border: 1px solid rgba(253, 248, 243, 0.2);
++  transition: all 0.15s;
++  white-space: nowrap;
+ }
+-.nav-pill:hover { background: var(--bg-warm); color: var(--ink); }
+-.nav-pill.active { background: var(--ink); color: #fff; border-color: var(--ink); }
++.nav-pill:hover { color: #fdf8f3; border-color: rgba(253, 248, 243, 0.5); }
++.nav-pill.active { background: var(--accent); color: #ffffff; border-color: var(--accent); }
+ 
+ .hero { max-width: var(--max); margin: 0 auto; padding: 56px 24px 40px; }
+ .breadcrumb { font-size: 13px; color: var(--ink-faint); margin-bottom: 20px; }
+@@ -178,12 +184,9 @@ tbody tr:hover td { background: var(--bg-warm); }
+ .next-card-title { font-size: 15px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+ .next-card-desc { font-size: 13px; color: var(--ink-muted); }
+ 
+-footer {
+-  border-top: 1px solid var(--border); padding: 24px; text-align: center;
+-  font-size: 13px; color: var(--ink-faint);
+-}
+-footer a { color: var(--ink-faint); text-decoration: none; }
+-footer a:hover { color: var(--ink); }
++footer { background-color: var(--ink); padding: 24px; text-align: center; font-size: 13px; color: rgba(253, 248, 243, 0.6); }
++footer a { color: rgba(253, 248, 243, 0.85); text-decoration: none; }
++footer a:hover { color: #ffffff; text-decoration: underline; }
+ </style>
+ <script type="application/ld+json">
+ {
+@@ -271,6 +274,7 @@ footer a:hover { color: var(--ink); }
+ <nav>
+   <a href="/" class="logo">Sicily Trip Planner</a>
+   <div class="nav-pills">
++    <a href="/plan/" class="nav-pill">Plan</a>
+     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+     <a href="/where-to-base-in-sicily/" class="nav-pill">Base</a>
+     <a href="/taormina-vs-ortigia/" class="nav-pill active">Compare</a>
+diff --git a/where-to-base-in-sicily/index.html b/where-to-base-in-sicily/index.html
+index 3020e1c..4938d54 100644
+--- a/where-to-base-in-sicily/index.html
++++ b/where-to-base-in-sicily/index.html
+@@ -18,19 +18,19 @@
+ <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+ <style>
+ :root {
+-  --ink: #1a1a18;
+-  --ink-muted: #5a5a52;
+-  --ink-faint: #8a8a80;
+-  --bg: #faf9f6;
+-  --bg-warm: #f4f1eb;
++  --ink: #2c2418;
++  --ink-muted: #6b5d4f;
++  --ink-faint: #9a8e80;
++  --bg: #fdf8f3;
++  --bg-warm: #f5ede3;
+   --bg-card: #ffffff;
+-  --accent: #c0392b;
+-  --accent-light: #f9eceb;
+-  --green: #27642a;
+-  --green-light: #edf4ee;
+-  --amber: #8a5a00;
+-  --amber-light: #fef6e4;
+-  --border: #e2ddd5;
++  --accent: #bf4a2a;
++  --accent-light: #fdf0ec;
++  --green: #2d7a3a;
++  --green-light: #edf7ef;
++  --amber: #b87a00;
++  --amber-light: #fef6e0;
++  --border: #e0d6c8;
+   --max: 740px;
+ }
+ 
+@@ -49,12 +49,12 @@ body {
+ }
+ 
+ nav {
+-  border-bottom: 1px solid var(--border);
++  border-bottom: none;
+   padding: 14px 24px;
+   display: flex;
+   align-items: center;
+   gap: 32px;
+-  background: var(--bg);
++  background: var(--ink);
+   position: sticky;
+   top: 0;
+   z-index: 100;
+@@ -65,7 +65,7 @@ nav {
+   font-family: 'Lora', serif;
+   font-weight: 600;
+   font-size: 17px;
+-  color: var(--ink);
++  color: #fdf8f3;
+   text-decoration: none;
+   letter-spacing: -0.3px;
+   white-space: nowrap;
+@@ -75,12 +75,27 @@ nav {
+ .nav-pills { display: flex; gap: 8px; flex-wrap: nowrap; }
+ 
+ .nav-pill {
+-  font-size: 13px; font-weight: 500; color: var(--ink-muted);
+-  text-decoration: none; padding: 5px 12px; border-radius: 20px;
+-  border: 1px solid var(--border); transition: all 0.15s; white-space: nowrap;
++  font-size: 13px;
++  font-weight: 500;
++  color: rgba(253, 248, 243, 0.7);
++  text-decoration: none;
++  padding: 5px 12px;
++  border-radius: 20px;
++  border: 1px solid rgba(253, 248, 243, 0.2);
++  transition: all 0.15s;
++  white-space: nowrap;
++}
++
++.nav-pill:hover {
++  color: #fdf8f3;
++  border-color: rgba(253, 248, 243, 0.5);
++}
++
++.nav-pill.active {
++  background: var(--accent);
++  color: #ffffff;
++  border-color: var(--accent);
+ }
+-.nav-pill:hover { background: var(--bg-warm); color: var(--ink); }
+-.nav-pill.active { background: var(--ink); color: #fff; border-color: var(--ink); }
+ 
+ .hero { max-width: var(--max); margin: 0 auto; padding: 56px 24px 40px; }
+ .breadcrumb { font-size: 13px; color: var(--ink-faint); margin-bottom: 20px; }
+@@ -203,11 +218,22 @@ tbody tr:hover td { background: var(--bg-warm); }
+ .next-card-desc { font-size: 13px; color: var(--ink-muted); }
+ 
+ footer {
+-  border-top: 1px solid var(--border); padding: 24px; text-align: center;
+-  font-size: 13px; color: var(--ink-faint);
++  background-color: var(--ink);
++  padding: 24px;
++  text-align: center;
++  font-size: 13px;
++  color: rgba(253, 248, 243, 0.6);
++}
++
++footer a {
++  color: rgba(253, 248, 243, 0.85);
++  text-decoration: none;
++}
++
++footer a:hover {
++  color: #ffffff;
++  text-decoration: underline;
+ }
+-footer a { color: var(--ink-faint); text-decoration: none; }
+-footer a:hover { color: var(--ink); }
+ </style>
+ <script type="application/ld+json">
+ {
+@@ -288,6 +314,7 @@ footer a:hover { color: var(--ink); }
+ <nav>
+   <a href="/" class="logo">Sicily Trip Planner</a>
+   <div class="nav-pills">
++    <a href="/plan/" class="nav-pill">Plan</a>
+     <a href="/how-long-should-i-spend-in-sicily/" class="nav-pill">Route</a>
+     <a href="/where-to-base-in-sicily/" class="nav-pill active">Base</a>
+     <a href="/palermo-vs-catania/" class="nav-pill">Compare</a>
